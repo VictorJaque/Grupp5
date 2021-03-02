@@ -18,6 +18,7 @@ public class Main {
         // TODO code application logic here
         System.out.println("Grupp5 aktiehandel AB");
         Meny.MenuStart();
+        Meny.MenuAfterLogin();
     }
     
 }

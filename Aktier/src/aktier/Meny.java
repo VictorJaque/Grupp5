@@ -18,25 +18,52 @@ public class Meny {
     //Menyn som visas först vid exekvering
     public static void MenuStart(){
         System.out.println("Registrera dig");
+        System.out.println("Logga in");
+        
+        //Inväntar en metod från registreringsklassen som ska initieras nedan
+        
     }
     // Efter första menyvalet kommer denna meny att köras
     public static void MenuAfterLogin() {
-        System.out.println("1. Ta ut pengar");
-        System.out.println("2. Sätt in pengar");
-        System.out.println("3. Handla aktier");
-        System.out.println("4. Ta ett lån");
-        System.out.println("5. Kolla saldo");
+        System.out.println("1. Bank");
+        System.out.println("2. Aktiemarknaden");
+        
+        
+        
         
         String choice = scan.nextLine();
         
         //lägg in en metod från bankklass eller likande här
         switch (choice){
-            case "1":
+            case "1": 
+                bankMainMenu();
+                break;
+            case "2":
+                
+                default: 
+                    System.out.println("idk");
+                
                 
         
     }
         
+        
     }
+    public static void bankMainMenu(){
+            System.out.println("1. Ta ut pengar");
+            System.out.println("3. Kolla saldo");
+            System.out.println("3. Sätt in pengar");
+            System.out.println("4. Ta ett lån");
+            
+            String choice = scan.nextLine();
+            switch (choice){
+                case "1": 
+                    //här ska en metod från bankklassen initieras
+                case "2":
+            
+            }
+            
+        }
     
     
     
