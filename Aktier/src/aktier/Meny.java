@@ -36,12 +36,13 @@ public class Meny {
         //lägg in en metod från bankklass eller likande här
         switch (choice){
             case "1": 
-                bankMainMenu();
+                BankMainMenu();
                 break;
             case "2":
                 
                 default: 
-                    System.out.println("idk");
+                    System.out.println("Du skrev inte in något av alternativen");
+                        MenuAfterLogin();
                 
                 
         
@@ -49,7 +50,7 @@ public class Meny {
         
         
     }
-    public static void bankMainMenu(){
+    public static void BankMainMenu(){
             System.out.println("1. Ta ut pengar");
             System.out.println("3. Kolla saldo");
             System.out.println("3. Sätt in pengar");
@@ -59,11 +60,53 @@ public class Meny {
             switch (choice){
                 case "1": 
                     //här ska en metod från bankklassen initieras
+                    break;
                 case "2":
-            
+                    //här ska en metod från bankklassen initieras
+                    break;
+                case "3":
+                    //här ska en metod från bankklassen initieras
+                    break;
+                case "4":
+                    //här ska en metod från bankklassen initieras
+                    break;
+                    default:
+                        System.out.println("Du skrev inte in något av alternativen");
+                        BankMainMenu();
+                    
+                    
+            }
+            }
+            public static void AktieMarknadenMainMenu(){
+                System.out.println("1. Ta ut pengar");
+                System.out.println("3. Kolla saldo");
+                System.out.println("3. Sätt in pengar");
+                
+                String choice = scan.nextLine();
+                
+                switch (choice){
+                    case "1":
+                        //här ska en metod från aktiemarknadsklassen initieras
+                        break;
+                    case "2":
+                        //här ska en metod från aktiemarknadsklassen initieras
+                        break;
+                    case "3":
+                        //här ska en metod från aktiemarknadsklassen initieras
+                        break;
+                    case "4":
+                        //här ska en metod från aktiemarknadsklassen initieras
+                        break;
+                        default:
+                            System.out.println("Du skrev inte in något av alternativen");
+                            AktieMarknadenMainMenu();
+                            
+                        
+                }
+                
             }
             
-        }
+        
     
     
     
