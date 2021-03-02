@@ -99,7 +99,10 @@ public class Meny {
                         break;
                         default:
                             System.out.println("Du skrev inte in något av alternativen");
-                            System.out.println("x");
+                            System.out.println("git test");
+                            System.out.println("git test");
+                            System.out.println("git test");
+                            System.out.println("git test");
                             AktieMarknadenMainMenu();
                             
                         
