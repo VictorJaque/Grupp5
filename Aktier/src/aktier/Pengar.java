@@ -26,8 +26,15 @@ abstract class Pengar {
         return currency;
     }
     //Set metod för att sätta currency värdet på en ny variabel
-    public String SetMethod(String valuta){
+    public  String SetCurrency(String valuta){
         return this.currency = valuta;
+   
+        //Istället för att använda get och set för att skydda data används här get och set för att nå attributen i Meny klassen 
+    }      
+    public float GetValue(){
+        return value;
     }
-    
+    public float SetValue(float userInputValue){
+            return this.value = userInputValue;
+    }
 }
