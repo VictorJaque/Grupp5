@@ -36,10 +36,10 @@ public class Meny {
         //lägg in en metod från bankklass eller likande här
         switch (choice){
             case "1": 
-                BankMainMenu();
+                BankMainMenu();                
                 break;
             case "2":
-                
+                               
                 default: 
                     System.out.println("Du skrev inte in något av alternativen");
                         MenuAfterLogin();
@@ -98,11 +98,7 @@ public class Meny {
                         //här ska en metod från aktiemarknadsklassen initieras
                         break;
                         default:
-                            System.out.println("Du skrev inte in något av alternativen");
-                            System.out.println("git test");
-                            System.out.println("git test");
-                            System.out.println("git test");
-                            System.out.println("git test");
+                            System.out.println("Du skrev inte in något av alternativen"); 
                             AktieMarknadenMainMenu();
                             
                         
