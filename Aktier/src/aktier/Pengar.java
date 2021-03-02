@@ -12,7 +12,7 @@ package aktier;
 abstract class Pengar {
     //Attribut
     public float value;
-    private final String currency;
+    private String currency;
     
     
     //Konstruktor
@@ -20,4 +20,14 @@ abstract class Pengar {
         this.value = value;
         this.currency = currency;
     }
+    
+    //Get metod för att nå currency 
+    public String GetCurrency(){
+        return currency;
+    }
+    //Set metod för att sätta currency värdet på en ny variabel
+    public String SetMethod(String valuta){
+        return this.currency = valuta;
+    }
+    
 }
