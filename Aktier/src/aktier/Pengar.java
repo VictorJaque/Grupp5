@@ -12,7 +12,7 @@ package aktier;
 abstract class Pengar {
     //Attribut
     public float value;
-    private String currency;
+    private final String currency;
     
     
     //Konstruktor
