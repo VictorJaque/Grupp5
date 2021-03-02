@@ -39,6 +39,7 @@ public class Meny {
                 BankMainMenu();                
                 break;
             case "2":
+                AktieMarknadenMainMenu();
                                
                 default: 
                     System.out.println("Du skrev inte in något av alternativen");
@@ -92,7 +93,16 @@ public class Meny {
                         //här ska en metod från aktiemarknadsklassen initieras
                         break;
                     case "3":
-                        //här ska en metod från aktiemarknadsklassen initieras
+                        System.out.println("Hur mucket vill du sätta in?");
+        
+                        int userValueInput = scan.nextInt();
+                        
+                        //skapar en instans av klassen 
+                        Aktiemarknad userMoneyAndCurrency = new Aktiemarknad(userValueInput, choice);
+                        //genom Klassen aktiemarknad kan vi nå value och currency samt get och set för att sätta och få fram värdet på currency
+                        
+                        userMoneyAndCurrency.insertMoney();                                              
+                        
                         break;
                     case "4":
                         //här ska en metod från aktiemarknadsklassen initieras
