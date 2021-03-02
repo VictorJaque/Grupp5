@@ -27,21 +27,30 @@ public class Aktiemarknad extends Pengar implements MoneyMethods{
         //Ger användaren möjligheten att välja valuta att mata in
         String choice = scan.nextLine();
         
+        //Ifall användaren matar in  "1" eller "2" kallas "SetCurrency" metoden från den abstrkta klassen "Pengar"
+        //SetCurrency är en Set metod och sätter värdet på currency
+        //Raden efter hämtar värdet med hjälp av "GetCurrency" metoden från den abstrakta klassen "Pengar"
+        //Användaren fick därav en output om vilken "currency" som används.
         switch (choice){
             case "1":
-                SetMethod("Dollar");
-                System.out.println("Du valde" + getClass());
+                SetCurrency("Dollar");
+                System.out.println("Du valde" + GetCurrency());
+                break;
             case "2":
-                SetMethod("Kronor");
-                System.out.println("Du valde" + getClass());
-                
-                
-                
+                SetCurrency("Kronor");
+                System.out.println("Du valde att sätta in" + GetCurrency());
+                Meny.AktieMarknadenMainMenu();
+                break;
+                //Vid fel inmatning körs metoden om från början till en korrekt inmatning tagit plats.
+                default:
+                    System.out.println("Du valde inget av alternativen, försök igen");
+                    insertMoney();
+                                               
         }
         
         
         
-                       
+                                              
         }
         
     
