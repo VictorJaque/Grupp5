@@ -16,9 +16,8 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        System.out.println("Test git");
-        System.out.println("Test git");
-        System.out.println("Test git");
+        System.out.println("Grupp5 aktiehandel AB");
+        Meny.MenuStart();
     }
     
 }
