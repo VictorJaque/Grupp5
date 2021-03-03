@@ -12,6 +12,8 @@ import java.util.Scanner;
  * @author Kalle
  */
 public class Meny {
+    //userBalance används för att lagra det befintliga värdet av value för att sedan kunna öka eller minska den beroende på insättning/uttag
+    public static float userBalance = 0;
     //static scanner för att nå den i hela klassen
     static Scanner scan = new Scanner(System.in);
     
@@ -31,7 +33,7 @@ public class Meny {
         
         
         
-        String choice = scan.nextLine();
+        String choice = scan.next();
         
         //lägg in en metod från bankklass eller likande här
         switch (choice){
@@ -57,8 +59,8 @@ public class Meny {
             System.out.println("3. Sätt in pengar");
             System.out.println("4. Ta ett lån");
             
-            String choice = scan.nextLine();
-            switch (choice){
+            String choiceBankMainMenu = scan.nextLine();
+            switch (choiceBankMainMenu){
                 case "1": 
                     //här ska en metod från bankklassen initieras
                     break;
@@ -83,9 +85,10 @@ public class Meny {
                 System.out.println("3. Kolla saldo");
                 System.out.println("3. Sätt in pengar");
                 
-                String choice = scan.nextLine();
                 
-                switch (choice){
+                String choiceMainMenu = scan.next();
+                
+                switch (choiceMainMenu){
                     case "1":
                         //här ska en metod från aktiemarknadsklassen initieras
                         break;
@@ -93,12 +96,21 @@ public class Meny {
                         //här ska en metod från aktiemarknadsklassen initieras
                         break;
                     case "3":
-                        System.out.println("Hur mucket vill du sätta in?");
+                        System.out.println("Hur mycket vill du sätta in?");
         
-                        int userValueInput = scan.nextInt();
+                        float userValueInput = scan.nextInt();
+                        
+        
+        
+                       userBalance = userBalance + userValueInput ;
+                        
                         
                         //skapar en instans av klassen 
-                        Aktiemarknad userMoneyAndCurrency = new Aktiemarknad(userValueInput, choice);
+                        Aktiemarknad userMoneyAndCurrency = new Aktiemarknad(userValueInput, choiceMainMenu);
+                        
+                        
+                        //Lägger till de nya insatta värdet på det redan befintliga
+                        
                         //genom Klassen aktiemarknad kan vi nå value och currency samt get och set för att sätta och få fram värdet på currency
                         
                         userMoneyAndCurrency.insertMoney();                                              
