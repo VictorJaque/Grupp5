@@ -17,6 +17,8 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Grupp5 aktiehandel AB");
+        //Meny.MenuAfterLogin(); metoden ska bort från main, endast start ska finnas tillgänglig
+        //Meny.MenuStart(); anropar en metod i menyklassen som tillsammans med övriga metoder i Meny klassen ärver av alla klasser i projektet.
         Meny.MenuStart();
         Meny.MenuAfterLogin();
     }
