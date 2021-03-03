@@ -39,11 +39,12 @@ public class Aktiemarknad extends Pengar implements MoneyMethods{
         switch (choiceInsertMoney){
             case "1":
                 SetCurrency("Dollar");
-                System.out.println("Du valde " + GetCurrency());
+                System.out.println("Du har nu " + Meny.userBalance +GetCurrency ());
+                Meny.AktieMarknadenMainMenu();
                 break;
             case "2":
                 SetCurrency("Kronor");
-                System.out.println("Du har nu " + Meny.userBalance +GetCurrency ());
+                System.out.println("Du har nu " + Meny.userBalance +" " +GetCurrency ());
                 Meny.AktieMarknadenMainMenu();
                 break;
                 //Vid fel inmatning körs metoden om från början till en korrekt inmatning tagit plats.
@@ -62,14 +63,14 @@ public class Aktiemarknad extends Pengar implements MoneyMethods{
 
     @Override
     public void withdrawMoney() {
-        System.out.println("väntar kod");
+        System.out.println("Du har " + Meny.userBalance +  " " + GetCurrency());
 
 
     }
 
     @Override
     public void checkBalance() {
-        System.out.println("väntar kod");
+        System.out.println("Du har nu " + Meny.userBalance + " " +GetCurrency ());
     }
     
     
