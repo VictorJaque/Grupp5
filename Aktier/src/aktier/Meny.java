@@ -68,6 +68,9 @@ public class Meny {
             Bank bank = new Bank(10000, "SEK");
             //Banken körs så länge man inte matar in 0
             //Har problem med att den läser in en gång utan att jag matar in något!
+            //Funkar nu fast med en int input från användaren
+            //Nu är det dock risk för error
+            //Vi får implementera en try/catch eventuellt
             boolean waitForInput = true;
             while (waitForInput) {
                 System.out.println("1. Ta ut pengar");
@@ -113,58 +116,63 @@ public class Meny {
                 System.out.println("1. Sätt in pengar");
                 System.out.println("2. Ta ut pengar");
                 System.out.println("3. Kolla saldo");
+                System.out.println("-----------------");
+                System.out.println("0. Gå tillbaka");
                 
                 
-                
+                boolean waitForInput = true;
                 String choiceMainMenu = scan.next();
                 
-                switch (choiceMainMenu){
+                while(waitForInput) {
+                    switch (choiceMainMenu){
                     
-                    case "1":
-                        System.out.println("Hur mycket vill du sätta in?");
+                        case "1":
+                            System.out.println("Hur mycket vill du sätta in?");
         
-                        float userValueInput = scan.nextFloat();
+                            float userValueInput = scan.nextFloat();
+                            
                         
-                        
-                        //userBalance är till för att addera det nuvarande värdet med det nya initierade värdet
+                            //userBalance är till för att addera det nuvarande värdet med det nya initierade värdet
         
         
-                       userBalance = userBalance + userValueInput ;
+                            userBalance = userBalance + userValueInput ;
                         
                         
-                        //skapar en instans av klassen 
+                             //skapar en instans av klassen 
                         
                         
                         
-                        //Lägger till de nya insatta värdet på det redan befintliga
+                            //Lägger till de nya insatta värdet på det redan befintliga
                         
-                        //genom Klassen aktiemarknad kan vi nå value och currency samt get och set för att sätta och få fram värdet på currency
+                            //genom Klassen aktiemarknad kan vi nå value och currency samt get och set för att sätta och få fram värdet på currency
                         
-                        userMoneyAndCurrency.insertMoney();
+                            userMoneyAndCurrency.insertMoney();
                         
-                        break;
-                    case "2":
-                        System.out.println("Hur mycket vill du ta ut?");
+                            break;
+                        case "2":
+                            System.out.println("Hur mycket vill du ta ut?");
                         
-                        float userWithdrawalAmount = scan.nextFloat();
+                            float userWithdrawalAmount = scan.nextFloat();
                         
-                        userBalance = userBalance - userWithdrawalAmount;
+                            userBalance = userBalance - userWithdrawalAmount;
                         
-                        userMoneyAndCurrency.withdrawMoney();
+                            userMoneyAndCurrency.withdrawMoney();
                         
                         
                              
-                        break;
-                    case "3":
-                        userMoneyAndCurrency.checkBalance();
+                            break;
+                        case "3":
+                            userMoneyAndCurrency.checkBalance();
                         
-                        break;
+                            break;
+                        case "0":
+                            waitForInput = false;
                             
                         default:
                             System.out.println("Du skrev inte in något av alternativen"); 
                             AktieMarknadenMainMenu();
                             
-                        
+                    }   
                 }
                 
             }
