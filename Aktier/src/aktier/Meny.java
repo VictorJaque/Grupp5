@@ -5,7 +5,6 @@
  */
 package aktier;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -61,31 +60,41 @@ public class Meny {
         
     }
     public static void BankMainMenu(){
-            System.out.println("1. Ta ut pengar");
-            System.out.println("3. Kolla saldo");
-            System.out.println("3. Sätt in pengar");
-            System.out.println("4. Ta ett lån");
-            
-            String choiceBankMainMenu = scan.nextLine();
-            switch (choiceBankMainMenu){
-                case "1": 
-                    //här ska en metod från bankklassen initieras
-                    break;
-                case "2":
-                    //här ska en metod från bankklassen initieras
-                    break;
-                case "3":
-                    //här ska en metod från bankklassen initieras
-                    break;
-                case "4":
-                    //här ska en metod från bankklassen initieras
-                    break;
-                    default:
-                        System.out.println("Du skrev inte in något av alternativen");
-                        BankMainMenu();
-                    
-                    
-            }
+            Bank bank = new Bank(10000, "SEK");
+            //Banken körs så länge man inte matar in 0
+            //Har problem med att den läser in en gång utan att jag matar in något!
+            boolean waitForInput = true;
+            while (waitForInput) {
+                System.out.println("1. Ta ut pengar");
+                System.out.println("2. Kolla saldo");
+                System.out.println("3. Sätt in pengar");
+                System.out.println("4. Ta ett lån");
+                System.out.println("-----------------");
+                System.out.println("0. Gå tillbaka");
+                
+                String choiceBankMainMenu = scan.nextLine();
+                switch (choiceBankMainMenu){
+                    case "0": 
+                        waitForInput = false;
+                        break;
+                    case "1": 
+                        //här ska en metod från bankklassen initieras 
+                   
+                        break;
+                    case "2":
+                        //här ska en metod från bankklassen initieras
+                        break;
+                    case "3":
+                        //här ska en metod från bankklassen initieras
+                        bank.insertMoney();
+                        break;
+                    case "4":
+                        //här ska en metod från bankklassen initieras
+                        break;
+                        default:
+                        System.out.println("Du skrev inte in något av alternativen");                
+                }
+             }
             
             //Nedan är kod som berör Aktiemarknaden
             }

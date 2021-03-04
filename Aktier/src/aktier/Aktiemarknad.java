@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Kalle
  */
-public class Aktiemarknad extends Pengar implements MoneyMethods{
+public class Aktiemarknad extends Money implements MoneyMethods{
     
     Scanner scan = new Scanner(System.in);
     
@@ -22,8 +22,8 @@ public class Aktiemarknad extends Pengar implements MoneyMethods{
     @Override
     public void insertMoney() {
         System.out.println("Vilken valuta vill använda?");
-        System.out.println("1. Dollar");
-        System.out.println("2. Sek");
+        System.out.println("1. USD"); 
+        System.out.println("2. SEK");
         
         
         
@@ -38,12 +38,12 @@ public class Aktiemarknad extends Pengar implements MoneyMethods{
         //Användaren fick därav en output om vilken "currency" som används.
         switch (choiceInsertMoney){
             case "1":
-                SetCurrency("Dollar");
+                SetCurrency("USD");
                 System.out.println("Du har nu " + Meny.userBalance +GetCurrency ());
                 Meny.AktieMarknadenMainMenu();
                 break;
             case "2":
-                SetCurrency("Kronor");
+                SetCurrency("SEK");
                 System.out.println("Du har nu " + Meny.userBalance +" " +GetCurrency ());
                 Meny.AktieMarknadenMainMenu();
                 break;
