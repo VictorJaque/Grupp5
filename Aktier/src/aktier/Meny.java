@@ -32,7 +32,7 @@ public class Meny {
         
     }
     // Efter första menyvalet kommer denna meny att köras
-    public static void MenuAfterLogin() {
+    public static void MenuAfterLogin() throws InterruptedException {
         System.out.println("1. Bank");
         System.out.println("2. Aktiemarknaden");
         System.out.println("-----------------");
@@ -42,22 +42,22 @@ public class Meny {
         
         
         int choiceMenuAfterLogin = scan.nextInt();
-        
+        boolean waitForInput = true;
+        while (waitForInput) {
         //lägg in en metod från bankklass eller likande här
-        switch (choiceMenuAfterLogin){
-            case 0:
-                waitForInput = false;
-                break;
-            case 1: 
-                BankMainMenu();                
-                break;
-            case 2:
-                AktieMarknadenMainMenu();
-                break;
-                default: 
-                    System.out.println("Du skrev inte in något av alternativen");
-                        MenuAfterLogin();
-                
+            switch (choiceMenuAfterLogin){
+                case 0:
+                    waitForInput = false;
+                    break;
+                case 1: 
+                    BankMainMenu();                
+                    break;
+                case 2:
+                    AktieMarknadenMainMenu();
+                    break;
+                    default: 
+                        System.out.println("Du skrev inte in något av alternativen");
+        } 
                 
         
     }

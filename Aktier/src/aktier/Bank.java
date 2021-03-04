@@ -101,12 +101,8 @@ public class Bank extends Money implements MoneyMethods {  //
         
     }
     //Ta ett lån.
-    private void applyForLoan() {
-                
-        
-    }
 
-    void takeLoan() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void takeLoan() {  // 
+        throw new UnsupportedOperationException("Not supported yet."); //Enda kvar att fixa
     }
 }
