@@ -63,6 +63,9 @@ public class Meny {
             Bank bank = new Bank(10000, "SEK");
             //Banken körs så länge man inte matar in 0
             //Har problem med att den läser in en gång utan att jag matar in något!
+            //Funkar nu fast med en int input från användaren
+            //Nu är det dock risk för error
+            //Vi får implementera en try/catch eventuellt
             boolean waitForInput = true;
             while (waitForInput) {
                 System.out.println("1. Ta ut pengar");
@@ -73,26 +76,28 @@ public class Meny {
                 System.out.println("-----------------");
                 System.out.println("0. Gå tillbaka");
                 
-                String choiceBankMainMenu = scan.nextLine();
+                int choiceBankMainMenu = scan.nextInt();
                 switch (choiceBankMainMenu){
-                    case "0": 
-                        waitForInput = false;
+                    case 0: 
+                        //lagt in MenuAfterLogin(); metoden här, annars avslutas programmet
+                        MenuAfterLogin();
                         break;
-                    case "1": 
+                    case 1: 
                         //här ska en metod från bankklassen initieras 
+                        
                    
                         break;
-                    case "2":
+                    case 2:
                         //här ska en metod från bankklassen initieras
                         break;
-                    case "3":
+                    case 3:
                         //här ska en metod från bankklassen initieras
                         bank.insertMoney();
                         break;
-                    case "4":
+                    case 4:
                         //här ska en metod från bankklassen initieras
                         break;
-                    case "5": 
+                    case 5: 
                         //här ska en metod för att öppna aktiemarknaden initieras
                         default:
                         System.out.println("Du skrev inte in något av alternativen");                
@@ -105,6 +110,7 @@ public class Meny {
                 System.out.println("1. Sätt in pengar");
                 System.out.println("2. Ta ut pengar");
                 System.out.println("3. Kolla saldo");
+                System.out.println("0. Gå tillbaka");
                 
                 
                 
@@ -151,6 +157,8 @@ public class Meny {
                         userMoneyAndCurrency.checkBalance();
                         
                         break;
+                    case "0":
+                        MenuAfterLogin();
                             
                         default:
                             System.out.println("Du skrev inte in något av alternativen"); 
