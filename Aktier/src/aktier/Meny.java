@@ -69,6 +69,7 @@ public class Meny {
                 System.out.println("2. Kolla saldo");
                 System.out.println("3. Sätt in pengar");
                 System.out.println("4. Ta ett lån");
+                System.out.println("5. Öppna aktiemarknaden");
                 System.out.println("-----------------");
                 System.out.println("0. Gå tillbaka");
                 
@@ -91,6 +92,8 @@ public class Meny {
                     case "4":
                         //här ska en metod från bankklassen initieras
                         break;
+                    case "5": 
+                        //här ska en metod för att öppna aktiemarknaden initieras
                         default:
                         System.out.println("Du skrev inte in något av alternativen");                
                 }
