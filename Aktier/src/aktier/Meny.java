@@ -35,20 +35,25 @@ public class Meny {
     public static void MenuAfterLogin() {
         System.out.println("1. Bank");
         System.out.println("2. Aktiemarknaden");
+        System.out.println("-----------------");
+        System.out.println("0. Logga ut");
         
         
         
         
-        String choiceMenuAfterLogin = scan.next();
+        int choiceMenuAfterLogin = scan.nextInt();
         
         //lägg in en metod från bankklass eller likande här
         switch (choiceMenuAfterLogin){
-            case "1": 
+            case 0:
+                waitForInput = false;
+                break;
+            case 1: 
                 BankMainMenu();                
                 break;
-            case "2":
+            case 2:
                 AktieMarknadenMainMenu();
-                               
+                break;
                 default: 
                     System.out.println("Du skrev inte in något av alternativen");
                         MenuAfterLogin();
@@ -59,7 +64,7 @@ public class Meny {
         
         
     }
-    public static void BankMainMenu(){
+    public static void BankMainMenu() throws InterruptedException{
             Bank bank = new Bank(10000, "SEK");
             //Banken körs så länge man inte matar in 0
             //Har problem med att den läser in en gång utan att jag matar in något!
@@ -70,31 +75,34 @@ public class Meny {
                 System.out.println("3. Sätt in pengar");
                 System.out.println("4. Ta ett lån");
                 System.out.println("5. Öppna aktiemarknaden");
-                System.out.println("-----------------");
+                System.out.println("-----------------------");
                 System.out.println("0. Gå tillbaka");
                 
-                String choiceBankMainMenu = scan.nextLine();
+                int choiceBankMainMenu = scan.nextInt();
                 switch (choiceBankMainMenu){
-                    case "0": 
+                    case 0: 
                         waitForInput = false;
                         break;
-                    case "1": 
+                    case 1: 
                         //här ska en metod från bankklassen initieras 
-                   
+                        bank.insertMoney();
                         break;
-                    case "2":
+                    case 2:
                         //här ska en metod från bankklassen initieras
+                        bank.checkBalance();
                         break;
-                    case "3":
+                    case 3:
                         //här ska en metod från bankklassen initieras
                         bank.insertMoney();
                         break;
-                    case "4":
+                    case 4:
                         //här ska en metod från bankklassen initieras
+                        bank.takeLoan();
                         break;
-                    case "5": 
+                    case 5: 
                         //här ska en metod för att öppna aktiemarknaden initieras
-                        default:
+                        
+                    default:
                         System.out.println("Du skrev inte in något av alternativen");                
                 }
              }

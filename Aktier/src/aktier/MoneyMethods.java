@@ -10,10 +10,10 @@ package aktier;
  * @author Kalle
  */
 public interface MoneyMethods {
-    void insertMoney();
+    void insertMoney() throws InterruptedException; 
     
-    void withdrawMoney();
+    void withdrawMoney() throws InterruptedException;
     
-    void checkBalance();
+    void checkBalance() throws InterruptedException;
     
 }

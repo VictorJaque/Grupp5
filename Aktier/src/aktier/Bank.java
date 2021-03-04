@@ -6,6 +6,7 @@
 package aktier;
 
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -21,19 +22,22 @@ public class Bank extends Money implements MoneyMethods {  //
     public Bank (float value, String currency) {
         super(value, currency);
         this.balance = 0;
-        
     }
     
     //Metoder
-    
-    //Sätta in pengar på konto
+
+    /**
+     * 
+     * @throws InterruptedException
+     */
     @Override
-    public void insertMoney() {
+    public void insertMoney()throws InterruptedException  {
+        //Metod för att sätta in pengar.
         //Boolean till while loop  som inte stänger ner funktionen ifall användaren
         //matar in mer pengar än den har
         boolean waitForInput = true;
         float amount;
-        
+        //While loop som kollar att användaren har tillräckligt med pengar för att kunna sätta in på sitt saldo 
         while (waitForInput) {
             System.out.println("Sätt in pengar");
             System.out.println("Hur mycket pengar vill du sätta in?");
@@ -43,23 +47,51 @@ public class Bank extends Money implements MoneyMethods {  //
                 System.out.println("Du har för lite pengar.");
                 System.out.println("Försök igen!");
             } else if (amount < value) { 
-                this.balance = amount;
+                this.balance += amount;
                 float newValue = (value - amount);
                 SetValue(newValue);  
                 checkBalance();
                 waitForInput = false;
                 System.out.println("Du har nu satt in " + amount + " " + this.currency + " till ditt konto!");
+                TimeUnit.SECONDS.sleep(1); //Stannar upp konsolen så användaren hinner se vad som hänt
                 break;
             }
         }
         
     }
     
-    //Ta ut pengar från konto
+
+
+    /**
+     * 
+     * @throws InterruptedException
+     */
     @Override
-    public void withdrawMoney() {
-        //Väntar på kod
+    public void withdrawMoney() throws InterruptedException {
+        //Metod för att ta ut pengar
+        //Samma logik som ovan fast att den tar ut istället för att sätta in
+        boolean waitForInput = true;
+        float amount;
         
+        while (waitForInput) {
+            System.out.println("Ta ut pengar");
+            System.out.println("Hur mycket pengar vill du ta ut?");
+            this.scan = new Scanner(System.in);
+            amount = scan.nextFloat();
+            if (amount > this.balance) {
+                System.out.println("Du har för lite pengar på ditt konto.");
+                System.out.println("Försök igen!");
+            } else if (amount < this.balance) {
+                this.balance -= amount;
+                float newValue = (value + amount);
+                SetValue(newValue);
+                checkBalance();
+                waitForInput = false;
+                System.out.println("Du har nu tagit ut " + amount + " " + this.currency + " från ditt konto!");
+                TimeUnit.SECONDS.sleep(1); //stannar konsolen i en sekund så användaren hinner se vad som händer
+                break;
+            }
+        }
     }
     
     //Skriver ut saldo 
@@ -72,5 +104,9 @@ public class Bank extends Money implements MoneyMethods {  //
     private void applyForLoan() {
                 
         
+    }
+
+    void takeLoan() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
