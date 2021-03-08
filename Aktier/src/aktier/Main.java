@@ -13,8 +13,9 @@ public class Main {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
         System.out.println("Grupp5 aktiehandel AB");
         //Meny.MenuAfterLogin(); metoden ska bort från main, endast start ska finnas tillgänglig

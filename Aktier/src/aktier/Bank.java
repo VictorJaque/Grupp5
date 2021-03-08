@@ -21,7 +21,7 @@ public class Bank extends Money implements MoneyMethods {  //
     //Konstruktor
     public Bank (float value, String currency) {
         super(value, currency);
-        this.balance = 0;
+        this.balance = value;
     }
     
     //Metoder
@@ -100,9 +100,19 @@ public class Bank extends Money implements MoneyMethods {  //
         System.out.println("Du har " + this.balance + " " + this.currency + " på ditt konto" );
         
     }
-    //Ta ett lån.
-
-    void takeLoan() {  // 
-        throw new UnsupportedOperationException("Not supported yet."); //Enda kvar att fixa
+    //Ta ett lån. Tar in hur mycket, ränta och vem som tar lån
+    public void takeLoan(float amount, float interest, User user) {  // 
+        float userDebt = user.getDebt();
+        
+        //Kollar hur användaren skriver ränta. Ifall man skriver den i heltal så ska den dela med 100
+        if (interest < 1.0 && interest > 0.0) {
+            userDebt = amount + (amount * interest);
+            this.balance += amount;
+        } else if (interest > 1 && interest < 100) {
+            float fixedInterest = (interest/100);
+            userDebt = amount + (amount * fixedInterest);
+            this.balance += amount;
+        }
+        user.setDebt(userDebt);
     }
 }
