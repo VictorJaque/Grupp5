@@ -16,12 +16,18 @@ public class Bank extends Money implements MoneyMethods {  //
     //Attribut för bank
     private float balance;
     Scanner scan;
+    private float debt;
+    private static float totalLoan;
+    private float interest;
 
     
     //Konstruktor
     public Bank (float value, String currency) {
         super(value, currency);
         this.balance = value;
+        this.debt = 0;
+        this.totalLoan = 0;
+        interest = (float)3.4; //sätter ränta för lån
     }
     
     //Metoder
@@ -98,12 +104,20 @@ public class Bank extends Money implements MoneyMethods {  //
     @Override
     public void checkBalance() {
         System.out.println("Du har " + this.balance + " " + this.currency + " på ditt konto" );
+        System.out.println("---------------------------------------------------------------");
+        System.out.println("Du har lånat totalt: " + this.totalLoan + " med en ränta på " + this.interest);
+        System.out.println("Total skuld: " + this.debt);
         
     }
     //Ta ett lån. Tar in hur mycket, ränta och vem som tar lån
-    public void takeLoan(float amount, float interest, User user) {  // 
-        float userDebt = user.getDebt();
-        
+    public void takeLoan() {  
+        this.scan = new Scanner(System.in);
+        float userDebt = 0;
+        System.out.println("Hur mycket vill du låna?");
+        float amount;
+        amount = scan.nextFloat();
+        float interest = (float)3.40;  
+                
         //Kollar hur användaren skriver ränta. Ifall man skriver den i heltal så ska den dela med 100
         if (interest < 1.0 && interest > 0.0) {
             userDebt = amount + (amount * interest);
@@ -113,6 +127,7 @@ public class Bank extends Money implements MoneyMethods {  //
             userDebt = amount + (amount * fixedInterest);
             this.balance += amount;
         }
-        user.setDebt(userDebt);
+        this.debt += userDebt;
+        this.totalLoan += amount;
     }
 }

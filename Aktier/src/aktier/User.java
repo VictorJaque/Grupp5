@@ -14,7 +14,7 @@ public class User {
     //användare variabel
     private String name;
     private String password;
-    private float debt;
+
     
     
     public User() {
@@ -41,18 +41,5 @@ public class User {
     public void setPassword(String password){
         this.password = password;
     }
-
-    /**
-     * @return the debt
-     */
-    public float getDebt() {
-        return debt;
-    }
-
-    /**
-     * @param debt the debt to set
-     */
-    public void setDebt(float debt) {
-        this.debt = debt;
-    }
 }
+
