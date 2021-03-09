@@ -22,9 +22,9 @@ public class Meny {
     
     //Menyn som visas först vid exekvering
     public static void MenuStart() throws InterruptedException{
-        System.out.println("1. Registrera dig");
+      /*  System.out.println("1. Registrera dig");
         System.out.println("2. Logga in");
-        String choiceMenuStart = scan.next();
+        String choiceMenuStart = scan.next(); */
         
         
         
@@ -154,28 +154,28 @@ public class Meny {
                 System.out.println("-----------------------");
                 System.out.println("0. Gå tillbaka");
                 
-                int choiceBankMainMenu = scan.nextInt();
+                String choiceBankMainMenu = scan.next();
                 switch (choiceBankMainMenu){
-                    case 0: 
+                    case "0": 
                         waitForInput = false;
                         break;
-                    case 1: 
+                    case "1": 
                         //här ska en metod från bankklassen initieras 
                         bank.insertMoney();
                         break;
-                    case 2:
+                    case "2":
                         //här ska en metod från bankklassen initieras
                         bank.checkBalance();
                         break;
-                    case 3:
+                    case "3":
                         //här ska en metod från bankklassen initieras
                         bank.insertMoney();
                         break;
-                    case 4:
+                    case "4":
                         //här ska en metod från bankklassen initieras
                         bank.takeLoan();
                         break;
-                    case 5: 
+                    case "5": 
                         //här ska en metod för att öppna aktiemarknaden initieras
                         AktieMarknadenMainMenu();
                         break;
