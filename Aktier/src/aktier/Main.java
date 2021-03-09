@@ -10,6 +10,7 @@ package aktier;
  * @author Victor Jaque <victor.jaque.mte21lin@tucsweden.se>
  */
 public class Main {
+   public static boolean setFalseOrTrue = true;
 
     /**
      * @param args the command line arguments
@@ -20,8 +21,14 @@ public class Main {
         System.out.println("Grupp5 aktiehandel AB");
         //Meny.MenuAfterLogin(); metoden ska bort från main, endast start ska finnas tillgänglig
         //Meny.MenuStart(); anropar en metod i menyklassen som tillsammans med övriga metoder i Meny klassen ärver av alla klasser i projektet.
-        Meny.MenuStart();
-        Meny.MenuAfterLogin();
+        
+        while (setFalseOrTrue) {            
+            Meny.MenuStart();
+        }
+        System.out.println("Du loggade ut");
+        
+        
+        
     }
     
 }
