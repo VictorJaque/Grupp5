@@ -29,7 +29,8 @@ public class Meny {
         
         
         //Inväntar en metod från registreringsklassen som ska initieras nedan
-         while(true) {
+        
+         
             //Ange val av
             System.out.println("-------------------Välkommen till banken-------------------");
             System.out.println("1 Logga in");
@@ -61,16 +62,18 @@ public class Meny {
                         System.out.println("Inloggning lyckad");
                         System.out.println("Vill du gå vidare?y/n");
                         
-                        while(true) {
+                        
+                        
                             String result = sc.nextLine();
                             if(result.equals("y")) {
                                 MenuAfterLogin();
                                 System.out.println("Vill du vidare?y/n");
+                                
                             
                             } else {
                                 break;
                             }     
-                       }
+                       
                         //Avbryta
                         System.out.println("Tack för att du använder programmet!");
                         System.exit(0);
@@ -100,7 +103,7 @@ public class Meny {
                     default:
                         System.out.println("Tack för att du använder programmet!");
                     
-            }
+            
                 
         }
     }
@@ -115,12 +118,15 @@ public class Meny {
         
         
         int choiceMenuAfterLogin = scan.nextInt();
-        boolean waitForInput = true;
-        while (waitForInput) {
+        
+        
         //lägg in en metod från bankklass eller likande här
             switch (choiceMenuAfterLogin){
                 case 0:
-                    waitForInput = false;
+                    Main.setFalseOrTrue = false;
+                    
+                    
+                   
                     break;
                 case 1: 
                     BankMainMenu();                
@@ -130,7 +136,7 @@ public class Meny {
                     break;
                     default: 
                         System.out.println("Du skrev inte in något av alternativen");
-        } 
+        
                 
         
     }
@@ -144,8 +150,7 @@ public class Meny {
             //Funkar nu fast med en int input från användaren
             //Nu är det dock risk för error
             //Vi får implementera en try/catch eventuellt
-            boolean waitForInput = true;
-            while (waitForInput) {
+            
                 System.out.println("1. Ta ut pengar");
                 System.out.println("2. Kolla saldo");
                 System.out.println("3. Sätt in pengar");
@@ -157,37 +162,36 @@ public class Meny {
                 String choiceBankMainMenu = scan.next();
                 switch (choiceBankMainMenu){
                     case "0": 
-                        waitForInput = false;
-                        break;
+                        MenuAfterLogin();
                     case "1": 
-                        //här ska en metod från bankklassen initieras 
+                         
                         bank.insertMoney();
                         break;
                     case "2":
-                        //här ska en metod från bankklassen initieras
+                        
                         bank.checkBalance();
                         break;
                     case "3":
-                        //här ska en metod från bankklassen initieras
+                        
                         bank.insertMoney();
                         break;
                     case "4":
-                        //här ska en metod från bankklassen initieras
+                        
                         bank.takeLoan();
                         break;
                     case "5": 
-                        //här ska en metod för att öppna aktiemarknaden initieras
+                        
                         AktieMarknadenMainMenu();
                         break;
                         
                     default:
                         System.out.println("Du skrev inte in något av alternativen");                
-                }
+                
              }
             
             //Nedan är kod som berör Aktiemarknaden
             }
-            public static void AktieMarknadenMainMenu(){
+            public static void AktieMarknadenMainMenu() throws InterruptedException{
                 System.out.println("1. Sätt in pengar");
                 System.out.println("2. Ta ut pengar");
                 System.out.println("3. Kolla saldo");
@@ -195,10 +199,10 @@ public class Meny {
                 System.out.println("0. Gå tillbaka");
                 
                 
-                boolean waitForInput = true;
+                
                 String choiceMainMenu = scan.next();
                 
-                while(waitForInput) {
+                
                     switch (choiceMainMenu){
                     
                         case "1":
@@ -241,13 +245,13 @@ public class Meny {
                         
                             break;
                         case "0":
-                            waitForInput = false;
+                            MenuAfterLogin();
                             
                         default:
                             System.out.println("Du skrev inte in något av alternativen"); 
                             AktieMarknadenMainMenu();
                             
-                    }   
+                       
                 }
                 
             }
