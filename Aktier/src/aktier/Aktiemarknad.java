@@ -20,7 +20,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
     }
 
     @Override
-    public void insertMoney() {
+    public void insertMoney() throws InterruptedException {
         System.out.println("Vilken valuta vill använda?");
         System.out.println("1. USD"); 
         System.out.println("2. SEK");
