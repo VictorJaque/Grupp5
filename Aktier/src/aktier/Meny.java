@@ -21,7 +21,7 @@ public class Meny {
     static Scanner scan = new Scanner(System.in);
     
     //Menyn som visas först vid exekvering
-    public static void MenuStart(){
+    public static void MenuStart() throws InterruptedException{
         System.out.println("1. Registrera dig");
         System.out.println("2. Logga in");
         String choiceMenuStart = scan.next();
@@ -65,7 +65,6 @@ public class Meny {
                             String result = sc.nextLine();
                             if(result.equals("y")) {
                                 MenuAfterLogin();
-                                
                                 System.out.println("Vill du vidare?y/n");
                             
                             } else {
