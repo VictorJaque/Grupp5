@@ -104,6 +104,8 @@ public class Meny {
                         break;
                     case 5: 
                         //här ska en metod för att öppna aktiemarknaden initieras
+                        AktieMarknadenMainMenu();
+                        break;
                         
                     default:
                         System.out.println("Du skrev inte in något av alternativen");                
