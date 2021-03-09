@@ -9,7 +9,7 @@ package aktier;
  *
  * @author Victor Jaque <victor.jaque.mte21lin@tucsweden.se>
  */
-abstract class Money {
+abstract class Money extends User {  //extend user?
     //Attribut
     public float value;
     String currency;
@@ -17,6 +17,7 @@ abstract class Money {
     
     //Konstruktor
     public Money(float value, String currency) {
+        super();// fixa när user är klar
         this.value = value;
         this.currency = currency;
     }

@@ -14,19 +14,15 @@ import java.util.concurrent.TimeUnit;
  */
 public class Bank extends Money implements MoneyMethods {  //
     //Attribut för bank
-    private float balance;
-    Scanner scan;
-    private float debt;
-    private static float totalLoan;
-    private float interest;
+    private Scanner scan;
+    private static float debt = 0;
+    private static float totalLoan = 0;
+    private final float interest;
 
     
     //Konstruktor
     public Bank (float value, String currency) {
         super(value, currency);
-        this.balance = value;
-        this.debt = 0;
-        this.totalLoan = 0;
         interest = (float)3.4; //sätter ränta för lån
     }
     
@@ -47,13 +43,13 @@ public class Bank extends Money implements MoneyMethods {  //
         while (waitForInput) {
             System.out.println("Sätt in pengar");
             System.out.println("Hur mycket pengar vill du sätta in?");
-            this.scan = new Scanner(System.in);
-            amount = scan.nextFloat();
+            this.setScan(new Scanner(System.in));
+            amount = getScan().nextFloat();
             if (amount > value) {
                 System.out.println("Du har för lite pengar.");
                 System.out.println("Försök igen!");
             } else if (amount < value) { 
-                this.balance += amount;
+                Meny.userBalance += amount;
                 float newValue = (value - amount);
                 SetValue(newValue);  
                 checkBalance();
@@ -82,13 +78,13 @@ public class Bank extends Money implements MoneyMethods {  //
         while (waitForInput) {
             System.out.println("Ta ut pengar");
             System.out.println("Hur mycket pengar vill du ta ut?");
-            this.scan = new Scanner(System.in);
-            amount = scan.nextFloat();
-            if (amount > this.balance) {
+            this.setScan(new Scanner(System.in));
+            amount = getScan().nextFloat();
+            if (amount > Meny.userBalance) {
                 System.out.println("Du har för lite pengar på ditt konto.");
                 System.out.println("Försök igen!");
-            } else if (amount < this.balance) {
-                this.balance -= amount;
+            } else if (amount < Meny.userBalance) {
+                Meny.userBalance -= amount;
                 float newValue = (value + amount);
                 SetValue(newValue);
                 checkBalance();
@@ -103,31 +99,49 @@ public class Bank extends Money implements MoneyMethods {  //
     //Skriver ut saldo 
     @Override
     public void checkBalance() {
-        System.out.println("Du har " + this.balance + " " + this.currency + " på ditt konto" );
+        System.out.println("Du har " + Meny.userBalance + " " + this.currency + " på ditt konto" );
         System.out.println("---------------------------------------------------------------");
         System.out.println("Du har lånat totalt: " + this.totalLoan + " med en ränta på " + this.interest);
         System.out.println("Total skuld: " + this.debt);
+        System.out.println(" ");
+        System.out.println(" ");
         
     }
     //Ta ett lån. Tar in hur mycket, ränta och vem som tar lån
     public void takeLoan() {  
-        this.scan = new Scanner(System.in);
+        this.setScan(new Scanner(System.in));
         float userDebt = 0;
         System.out.println("Hur mycket vill du låna?");
         float amount;
-        amount = scan.nextFloat();
+        amount = getScan().nextFloat();
         float interest = (float)3.40;  
                 
         //Kollar hur användaren skriver ränta. Ifall man skriver den i heltal så ska den dela med 100
         if (interest < 1.0 && interest > 0.0) {
             userDebt = amount + (amount * interest);
-            this.balance += amount;
+            Meny.userBalance += amount;
         } else if (interest > 1 && interest < 100) {
             float fixedInterest = (interest/100);
             userDebt = amount + (amount * fixedInterest);
-            this.balance += amount;
+            Meny.userBalance += amount;
         }
         this.debt += userDebt;
         this.totalLoan += amount;
     }
+
+    /**
+     * @return the scan
+     */
+    public Scanner getScan() {
+        return scan;
+    }
+
+    /**
+     * @param scan the scan to set
+     */
+    public void setScan(Scanner scan) {
+        this.scan = scan;
+    }
+
+    
 }
