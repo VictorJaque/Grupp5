@@ -40,6 +40,7 @@ public class Bank extends Money implements MoneyMethods {  //
         boolean waitForInput = true;
         float amount;
         //While loop som kollar att användaren har tillräckligt med pengar för att kunna sätta in på sitt saldo 
+        //Nåon while loop stoppar programmet ifrån att stoppas vid inmatning av 0 i huvudmenyn, troligen något att göra med while loopen
         while (waitForInput) {
             System.out.println("Sätt in pengar");
             System.out.println("Hur mycket pengar vill du sätta in?");
