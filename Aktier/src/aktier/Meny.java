@@ -29,7 +29,81 @@ public class Meny {
         
         
         //Inväntar en metod från registreringsklassen som ska initieras nedan
-        
+         while(true) {
+            //Ange val av
+            System.out.println("-------------------Välkommen till banken-------------------");
+            System.out.println("1 Logga in");
+            System.out.println("2 Registrera dig");
+            System.out.println("3 Avsluta");
+            
+            
+            //Flera olika logic måste anropas
+            UserInterface ui = new InterfaceImpl();
+            Scanner sc = new Scanner(System.in);
+            
+            //input data
+            System.out.println("Vänligen gör ett val");
+            String choice = sc.nextLine();
+            
+            //Använder switch statement
+            
+            switch(choice) {
+                case "1":
+                    //Läser in användarens input
+                    System.out.println("Skriv in ditt namn: ");
+                    String username = sc.nextLine();
+                    System.out.println("Skriv in ditt lösenord");
+                    String password = sc.nextLine();
+                    
+                    //Tillkalla loggnings funktion
+                    boolean flag = ui.isLogin(username, password);
+                    if(flag) {
+                        System.out.println("Inloggning lyckad");
+                        System.out.println("Vill du gå vidare?y/n");
+                        
+                        while(true) {
+                            String result = sc.nextLine();
+                            if(result.equals("y")) {
+                                MenuAfterLogin();
+                                
+                                System.out.println("Vill du vidare?y/n");
+                            
+                            } else {
+                                break;
+                            }     
+                       }
+                        //Avbryta
+                        System.out.println("Tack för att du använder programmet!");
+                        System.exit(0);
+                    }else {
+                        System.out.println("Ditt namn eller lösenord är fel...");
+                    }        
+                    break;
+                case "2":
+                    //Registrera
+                    System.out.println("Skriv in ditt namn:");
+                    String newUserName = sc.nextLine();
+                    System.out.println("Skriv in ditt lösenord");
+                    String newPassword = sc.nextLine();
+                    
+                    //kapsla in namnet och lösenordet till användare object
+                    User user = new User();
+                    user.setName(newUserName);
+                    user.setPassword(newPassword);
+                    
+                    //Anropa registrations funktion
+                    //Skapa interface object
+                    ui.register(user);
+                    System.out.println("Registreringen lyckades");
+                    break;
+                case "3":
+                    
+                    default:
+                        System.out.println("Tack för att du använder programmet!");
+                    
+            }
+                
+        }
     }
     // Efter första menyvalet kommer denna meny att köras
     public static void MenuAfterLogin() throws InterruptedException {
