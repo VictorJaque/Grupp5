@@ -37,25 +37,24 @@ public class Bank extends Money implements MoneyMethods {  //
         //Metod för att sätta in pengar.
         //Boolean till while loop  som inte stänger ner funktionen ifall användaren
         //matar in mer pengar än den har
-        boolean waitForInput = true;
+       boolean waitForInput = true;
         float amount;
         //While loop som kollar att användaren har tillräckligt med pengar för att kunna sätta in på sitt saldo 
-        //Nåon while loop stoppar programmet ifrån att stoppas vid inmatning av 0 i huvudmenyn, troligen något att göra med while loopen
         while (waitForInput) {
             System.out.println("Sätt in pengar");
             System.out.println("Hur mycket pengar vill du sätta in?");
             this.setScan(new Scanner(System.in));
             amount = getScan().nextFloat();
-            if (amount > value) {
+            if (amount > GetValue()) {
                 System.out.println("Du har för lite pengar.");
                 System.out.println("Försök igen!");
-            } else if (amount < value) { 
+            } else if (amount < GetValue()) { 
                 Meny.userBalance += amount;
-                float newValue = (value - amount);
+                float newValue = (GetValue() - amount);
                 SetValue(newValue);  
                 checkBalance();
                 waitForInput = false;
-                System.out.println("Du har nu satt in " + amount + " " + this.currency + " till ditt konto!");
+                System.out.println("Du har nu satt in " + amount + " " + GetCurrency() + " till ditt konto!");
                 TimeUnit.SECONDS.sleep(1); //Stannar upp konsolen så användaren hinner se vad som hänt
                 break;
             }
@@ -86,11 +85,11 @@ public class Bank extends Money implements MoneyMethods {  //
                 System.out.println("Försök igen!");
             } else if (amount < Meny.userBalance) {
                 Meny.userBalance -= amount;
-                float newValue = (value + amount);
+                float newValue = (GetValue() + amount);
                 SetValue(newValue);
                 checkBalance();
                 waitForInput = false;
-                System.out.println("Du har nu tagit ut " + amount + " " + this.currency + " från ditt konto!");
+                System.out.println("Du har nu tagit ut " + amount + " " + GetCurrency() + " från ditt konto!");
                 TimeUnit.SECONDS.sleep(1); //stannar konsolen i en sekund så användaren hinner se vad som händer
                 break;
             }
@@ -100,7 +99,7 @@ public class Bank extends Money implements MoneyMethods {  //
     //Skriver ut saldo 
     @Override
     public void checkBalance() {
-        System.out.println("Du har " + Meny.userBalance + " " + this.currency + " på ditt konto" );
+        System.out.println("Du har " + Meny.userBalance + " " + GetCurrency() + " på ditt konto" );
         System.out.println("---------------------------------------------------------------");
         System.out.println("Du har lånat totalt: " + this.totalLoan + " med en ränta på " + this.interest);
         System.out.println("Total skuld: " + this.debt);
