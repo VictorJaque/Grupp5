@@ -62,6 +62,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
     
 
     @Override
+    //Anropas i Meny klassen när användaren väljer att göra ett uttag
     public void withdrawMoney() {
         System.out.println("Du har " + Meny.userBalance +  " " + GetCurrency());
 
@@ -69,10 +70,11 @@ public class Aktiemarknad extends Money implements MoneyMethods{
     }
 
     @Override
+    //Anropas i Meny klassen när användaren väljer att kolla sitt saldo
     public void checkBalance() {
         System.out.println("Du har nu " + Meny.userBalance + " " +GetCurrency ());
     }
     
-    
+      
 }
 
