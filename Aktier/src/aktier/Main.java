@@ -25,10 +25,9 @@ public class Main {
         while (setFalseOrTrue) {            
             Meny.MenuStart();
         }
-        System.out.println("Du loggade ut");
         
         
-        
+               
     }
     
 }
