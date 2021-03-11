@@ -12,11 +12,13 @@ package aktier;
 public class Aktie {
     private String aktieID;
     private String aktieNamn;
+    private float kostnad;
     
 
-    public Aktie(String aktieID ,String aktieNamn) {
+    public Aktie(String aktieID ,String aktieNamn, float kostnad) {
         this.aktieID = aktieID;
         this.aktieNamn = aktieNamn;
+        this.kostnad = kostnad;
                 
     }
     
@@ -29,6 +31,11 @@ public class Aktie {
     public String getAktieID() {
         return aktieID;
     }
+
+    public float getKostnad() {
+        return kostnad;
+    }
+    
     
    
     
