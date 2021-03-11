@@ -14,12 +14,13 @@ import java.util.Scanner;
  */
 public class Aktiemarknad extends Money implements MoneyMethods{
     //Attribut 
-    public static ArrayList<Aktier> market; //Arraylist för att lägga in aktier
+    public static ArrayList<Aktie>  listOfStocks = new ArrayList<>();
+   
     Scanner scan = new Scanner(System.in);
     
     public Aktiemarknad(float value, String currency) {
         super(value, currency);
-        market = new ArrayList<>();
+        
     }
 
     @Override
@@ -78,12 +79,49 @@ public class Aktiemarknad extends Money implements MoneyMethods{
         System.out.println("Du har nu " + Meny.userBalance + " " +GetCurrency ());
     }
     
-    //Inväntar metod för att lägga in Aktier
-    public void addToStockMarket() {
-        // initiera olika aktier och ge värde
+    
+     public static void addStocks(ArrayList<Aktie> listOfStocks) throws InterruptedException{
+         
+         
+         
+         Scanner scan = new Scanner(System.in);
+         System.err.println("Följ instruktionerna för att lägga till en aktie i listan");
+         System.out.println("Aktiens:");
+         
+         System.out.println("Namn");
+         String aktieNamn = (scan.next());
+         
+         System.out.println("ID");
+         String aktieID = scan.next();
+         
+         
+         
+         Aktiemarknad.listOfStocks.add(new Aktie(aktieID, aktieNamn));
+         
+         
+         
+         
+         
+
+         
         
-        //Metod för att lägga in i arraylist
-    }
+             
+          int numreraAktierna= 0;
+         
+         for (Aktie antalAktier: listOfStocks){
+             numreraAktierna++;
+             
+             System.out.println(numreraAktierna + ". Aktie: " + antalAktier.getAktieNamn() + "ID: " + antalAktier.getAktieID());
+            
+     }
+         Meny.AktieMarknadenMainMenu();
+         
+         
+        
+         
+     
+         
+     }
       
 }
 
