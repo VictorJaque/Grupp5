@@ -37,10 +37,7 @@ public class Bank extends Money implements MoneyMethods {  //
         //Metod för att sätta in pengar.
         //Boolean till while loop  som inte stänger ner funktionen ifall användaren
         //matar in mer pengar än den har
-       boolean waitForInput = true;
         float amount;
-        //While loop som kollar att användaren har tillräckligt med pengar för att kunna sätta in på sitt saldo 
-        while (waitForInput) {
             System.out.println("Sätt in pengar");
             System.out.println("Hur mycket pengar vill du sätta in?");
             this.setScan(new Scanner(System.in));
@@ -53,11 +50,9 @@ public class Bank extends Money implements MoneyMethods {  //
                 float newValue = (GetValue() - amount);
                 SetValue(newValue);  
                 checkBalance();
-                waitForInput = false;
                 System.out.println("Du har nu satt in " + amount + " " + GetCurrency() + " till ditt konto!");
                 TimeUnit.SECONDS.sleep(1); //Stannar upp konsolen så användaren hinner se vad som hänt
-                break;
-            }
+                Meny.BankMainMenu();
         }
         
     }
@@ -72,10 +67,8 @@ public class Bank extends Money implements MoneyMethods {  //
     public void withdrawMoney() throws InterruptedException {
         //Metod för att ta ut pengar
         //Samma logik som ovan fast att den tar ut istället för att sätta in
-        boolean waitForInput = true;
         float amount;
         
-        while (waitForInput) {
             System.out.println("Ta ut pengar");
             System.out.println("Hur mycket pengar vill du ta ut?");
             this.setScan(new Scanner(System.in));
@@ -88,11 +81,9 @@ public class Bank extends Money implements MoneyMethods {  //
                 float newValue = (GetValue() + amount);
                 SetValue(newValue);
                 checkBalance();
-                waitForInput = false;
                 System.out.println("Du har nu tagit ut " + amount + " " + GetCurrency() + " från ditt konto!");
                 TimeUnit.SECONDS.sleep(1); //stannar konsolen i en sekund så användaren hinner se vad som händer
-                break;
-            }
+                Meny.BankMainMenu();
         }
     }
     
@@ -114,7 +105,7 @@ public class Bank extends Money implements MoneyMethods {  //
         System.out.println("Hur mycket vill du låna?");
         float amount;
         amount = getScan().nextFloat();
-        float interest = (float)3.40;  
+        float interest = (float)3.4;  
                 
         //Kollar hur användaren skriver ränta. Ifall man skriver den i heltal så ska den dela med 100
         if (interest < 1.0 && interest > 0.0) {

@@ -163,6 +163,7 @@ public class Meny {
                 switch (choiceBankMainMenu){
                     case "0": 
                         MenuAfterLogin();
+                        break;
                     case "1": 
                          
                         bank.insertMoney();
