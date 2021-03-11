@@ -68,7 +68,7 @@ public class Meny {
                             String result = sc.nextLine();
                             if(result.equals("y")) {
                                 MenuAfterLogin();
-                                System.out.println("Vill du vidare?y/n");
+                                
                                 
                             
                             } else {
@@ -76,7 +76,7 @@ public class Meny {
                             }     
                        
                         //Avbryta
-                        System.out.println("Tack för att du använder programmet!");
+                        
                         System.exit(0);
                     }else {
                         System.out.println("Ditt namn eller lösenord är fel...");
@@ -101,6 +101,10 @@ public class Meny {
                     break;
                 case "3":
                     
+                    System.out.println("Du loggade ut");
+                    Main.setFalseOrTrue = false;
+                    break;
+                    
                     default:
                         System.out.println("Tack för att du använder programmet!");
                     
@@ -124,6 +128,7 @@ public class Meny {
         //lägg in en metod från bankklass eller likande här
             switch (choiceMenuAfterLogin){
                 case 0:
+                    System.out.println("Du loggade ut");
                     Main.setFalseOrTrue = false;
                     
                     
@@ -198,6 +203,8 @@ public class Meny {
                 System.out.println("2. Ta ut pengar");
                 System.out.println("3. Kolla saldo");
                 System.out.println("4. Lägg till aktier");
+                System.out.println("5. Ta bort aktier");
+                System.out.println("6. Kolla aktie listan");
                 System.out.println("-----------------");
                 System.out.println("0. Gå tillbaka");
                 
@@ -250,6 +257,13 @@ public class Meny {
                           case "4":
                               newStock();
                               break;
+                          case "5":
+                              removeStock();
+                              case "6":
+                                  Aktiemarknad.listAllStocks();
+                                          break;
+                                  
+                                  
                         case "0":
                             MenuAfterLogin();
                             break;
@@ -275,6 +289,9 @@ public class Meny {
        
       
        }
+            public static void removeStock(){
+                Aktiemarknad.removeStock();
+            }
             
         
     
