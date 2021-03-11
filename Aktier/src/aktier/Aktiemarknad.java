@@ -26,50 +26,20 @@ public class Aktiemarknad extends Money implements MoneyMethods{
 
     @Override
     public void insertMoney() throws InterruptedException {
-        System.out.println("Vilken valuta vill använda?");
-        System.out.println("1. USD"); 
-        System.out.println("2. SEK");
-        
-        
-        
-        
-        
-        //Ger användaren möjligheten att välja valuta att mata in
-        String choiceInsertMoney = scan.next();
-        
-        //Ifall användaren matar in  "1" eller "2" kallas "SetCurrency" metoden från den abstrkta klassen "Pengar"
-        //SetCurrency är en Set metod och sätter värdet på currency
-        //Raden efter hämtar värdet med hjälp av "GetCurrency" metoden från den abstrakta klassen "Pengar"
-        //Användaren fick därav en output om vilken "currency" som används.
-        switch (choiceInsertMoney){
-            case "1":
-                SetCurrency("USD");
-                System.out.println("Du har nu " + Meny.userBalance +GetCurrency ());
-                Meny.AktieMarknadenMainMenu();
-                break;
-            case "2":
-                SetCurrency("SEK");
-                System.out.println("Du har nu " + Meny.userBalance +" " +GetCurrency ());
-                Meny.AktieMarknadenMainMenu();
-                break;
-                //Vid fel inmatning körs metoden om från början till en korrekt inmatning tagit plats.
-                default:
-                    System.out.println("Du valde inget av alternativen, försök igen");
-                    insertMoney();
-                                               
-        }
-        
-        
-        
-                                              
-        }
         
     
-
+        System.out.println("Du har nu " + Meny.userBalance +Meny.userInputCurrency;
+       
+       Meny.AktieMarknadenMainMenu();
+                                             
+        
+       
+   
+    }
     @Override
-    //Anropas i Meny klassen när användaren väljer att göra ett uttag
-    public void withdrawMoney() {
-        System.out.println("Du har " + Meny.userBalance +  " " + GetCurrency());
+    //Anropas i Meny klassen när användaren väljer att göra ettuttag
+    public void withdrawMoney(){ 
+        System.out.println("Du har " + Meny.userBalance +  " "  Meny.userInputCurrency;
 
 
     }
@@ -77,7 +47,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
     @Override
     //Anropas i Meny klassen när användaren väljer att kolla sitt saldo
     public void checkBalance() {
-        System.out.println("Du har nu " + Meny.userBalance + " " +GetCurrency ());
+        System.out.println("Du har nu " + Meny.userBalance + " " +Meny.userInputCurrency;
     }
     
     
@@ -146,10 +116,10 @@ public class Aktiemarknad extends Money implements MoneyMethods{
      int numreraAktierna= 0;
          
          for (Aktie antalAktier: listOfStocks){
-             numreraAktierna++;
+             
              
              System.out.println(numreraAktierna + ". Aktie: " + antalAktier.getAktieNamn() + " ID: " + antalAktier.getAktieID() + " Pris: " + antalAktier.getKostnad());
-            
+            numreraAktierna++;
      }
          Meny.AktieMarknadenMainMenu();
 
