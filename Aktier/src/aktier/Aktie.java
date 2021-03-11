@@ -12,6 +12,7 @@ package aktier;
 public class Aktie {
     private String aktieID;
     private String aktieNamn;
+    
 
     public Aktie(String aktieID ,String aktieNamn) {
         this.aktieID = aktieID;
