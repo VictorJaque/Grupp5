@@ -13,6 +13,7 @@ import java.util.Scanner;
  * @author Kalle
  */
 public class Meny {
+   public static String userInputCurrency;
     public static float userValueInput;
     public static  String choiceMainMenu;
     public static Aktiemarknad userMoneyAndCurrency = new Aktiemarknad(userValueInput, choiceMainMenu);
@@ -67,7 +68,7 @@ public class Meny {
                         
                             String result = sc.nextLine();
                             if(result.equals("y")) {
-                                MenuAfterLogin();
+                                DeclareCurrency();
                                 
                                 
                             
@@ -111,11 +112,37 @@ public class Meny {
             
                 
         }
+            
+    }
+    public static void DeclareCurrency() throws InterruptedException{
+        System.out.println("1. SEK");
+        System.out.println("2. EUR");
+        
+        String userInputSwitch = scan.next();
+        
+        switch(userInputSwitch){
+            case "1":
+        userInputCurrency = "SEK";
+        
+        MenuAfterLogin();
+        break;
+            case "2":
+                userInputCurrency = "EUR";
+                MenuAfterLogin();
+                break;
+                default:
+                    System.out.println("Skriv in ett giltigt alternativ");
+                    DeclareCurrency();
+        }
+       
+       
+       
     }
     // Efter första menyvalet kommer denna meny att köras
     public static void MenuAfterLogin() throws InterruptedException {
         System.out.println("1. Bank");
         System.out.println("2. Aktiemarknaden");
+        
         System.out.println("-----------------");
         System.out.println("0. Logga ut");
         
@@ -150,7 +177,7 @@ public class Meny {
         
     }
     public static void BankMainMenu() throws InterruptedException{
-            Bank bank = new Bank(10000, "SEK");
+            Bank bank = new Bank(10000, userInputCurrency);
             //Banken körs så länge man inte matar in 0
             //Har problem med att den läser in en gång utan att jag matar in något!
             //Funkar nu fast med en int input från användaren
