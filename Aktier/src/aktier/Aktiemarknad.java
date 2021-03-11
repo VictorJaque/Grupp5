@@ -5,6 +5,7 @@
  */
 package aktier;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -12,11 +13,13 @@ import java.util.Scanner;
  * @author Kalle
  */
 public class Aktiemarknad extends Money implements MoneyMethods{
-    
+    //Attribut 
+    public static ArrayList<Aktier> market; //Arraylist för att lägga in aktier
     Scanner scan = new Scanner(System.in);
     
     public Aktiemarknad(float value, String currency) {
         super(value, currency);
+        market = new ArrayList<>();
     }
 
     @Override
