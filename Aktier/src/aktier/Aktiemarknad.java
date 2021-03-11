@@ -78,6 +78,12 @@ public class Aktiemarknad extends Money implements MoneyMethods{
         System.out.println("Du har nu " + Meny.userBalance + " " +GetCurrency ());
     }
     
+    //Inväntar metod för att lägga in Aktier
+    public void addToStockMarket() {
+        // initiera olika aktier och ge värde
+        
+        //Metod för att lägga in i arraylist
+    }
       
 }
 

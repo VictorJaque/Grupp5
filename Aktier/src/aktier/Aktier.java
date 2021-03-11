@@ -9,7 +9,7 @@ package aktier;
  *
  * @author Victor Jaque <victor.jaque.mte21lin@tucsweden.se>
  */
-abstract class Aktier {
+public class Aktier {
     //Attribut för abstrakta klassen för aktier
     private final String name;
     public float cost;
