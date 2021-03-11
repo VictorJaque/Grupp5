@@ -5,6 +5,7 @@
  */
 package aktier;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -196,6 +197,7 @@ public class Meny {
                 System.out.println("1. Sätt in pengar");
                 System.out.println("2. Ta ut pengar");
                 System.out.println("3. Kolla saldo");
+                System.out.println("4. Lägg till aktier");
                 System.out.println("-----------------");
                 System.out.println("0. Gå tillbaka");
                 
@@ -245,8 +247,12 @@ public class Meny {
                             userMoneyAndCurrency.checkBalance();
                         
                             break;
+                          case "4":
+                              newStock();
+                              break;
                         case "0":
                             MenuAfterLogin();
+                            break;
                             
                         default:
                             System.out.println("Du skrev inte in något av alternativen"); 
@@ -256,6 +262,19 @@ public class Meny {
                 }
                 
             }
+            public static void newStock() throws InterruptedException{
+             System.out.println("Aktier");
+             
+             
+             Aktiemarknad.addStocks(Aktiemarknad.listOfStocks);
+             
+                
+       
+             AktieMarknadenMainMenu();
+        
+       
+      
+       }
             
         
     
