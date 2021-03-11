@@ -5,6 +5,7 @@
  */
 package aktier;
 
+import static aktier.Aktiemarknad.listOfStocks;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -94,9 +95,12 @@ public class Aktiemarknad extends Money implements MoneyMethods{
          System.out.println("ID");
          String aktieID = scan.next();
          
+         System.out.println("Pris");
+         float kostnad =scan.nextFloat();
          
          
-         Aktiemarknad.listOfStocks.add(new Aktie(aktieID, aktieNamn));
+         
+         Aktiemarknad.listOfStocks.add(new Aktie(aktieID, aktieNamn, kostnad));
          
          
          
@@ -111,7 +115,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
          for (Aktie antalAktier: listOfStocks){
              numreraAktierna++;
              
-             System.out.println(numreraAktierna + ". Aktie: " + antalAktier.getAktieNamn() + "ID: " + antalAktier.getAktieID());
+             System.out.println(numreraAktierna + ". Aktie: " + antalAktier.getAktieNamn() + " ID: " + antalAktier.getAktieID() + " Pris: " + antalAktier.getKostnad());
             
      }
          Meny.AktieMarknadenMainMenu();
@@ -122,6 +126,38 @@ public class Aktiemarknad extends Money implements MoneyMethods{
      
          
      }
+     public static void removeStock(){
+         int numreraAktierna= 0;
+         
+         for (Aktie antalAktier: listOfStocks){
+             numreraAktierna++;
+             
+             System.out.println(numreraAktierna + ". Aktie: " + antalAktier.getAktieNamn() + " ID: " + antalAktier.getAktieID() + " Pris: " + antalAktier.getKostnad());
+            
+     }
+         System.out.println("Skriv in ID numret på den aktie du vill ta bort");
+         Scanner scan = new Scanner(System.in);
+         int removeInput = scan.nextInt()
+         listOfStocks.remove(removeInput);
+         Meny.AktieMarknadenMainMenu();
+         
+     }
+     public static void listAllStocks(){
+     int numreraAktierna= 0;
+         
+         for (Aktie antalAktier: listOfStocks){
+             numreraAktierna++;
+             
+             System.out.println(numreraAktierna + ". Aktie: " + antalAktier.getAktieNamn() + " ID: " + antalAktier.getAktieID() + " Pris: " + antalAktier.getKostnad());
+            
+     }
+         Meny.AktieMarknadenMainMenu();
+
+   
+      }
+       
+             
+             
       
-}
+
 
