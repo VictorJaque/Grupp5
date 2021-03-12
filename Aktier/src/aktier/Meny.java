@@ -202,22 +202,19 @@ public class Meny {
         
         
         
-        int choiceMenuAfterLogin = scan.nextInt();
+        String choiceMenuAfterLogin = scan.next();
         
         
         //lägg in en metod från bankklass eller likande här
             switch (choiceMenuAfterLogin){
-                case 0:
+                case "0":
                     System.out.println("Du loggade ut");
                     Main.setFalseOrTrue = false;
-                    
-                    
-                   
                     break;
-                case 1: 
+                case "1": 
                     BankMainMenu();                
                     break;
-                case 2:
+                case "2":
                     AktieMarknadenMainMenu();
                     break;
                     default: 
@@ -260,7 +257,7 @@ public class Meny {
                         break;
                     case "3":
                         
-                        bank.insertMoney();
+                        bank.withdrawMoney();
                         break;
                     case "4":
                         
@@ -278,6 +275,7 @@ public class Meny {
             
             //Nedan är kod som berör Aktiemarknaden
             }
+   @SuppressWarnings("fallthrough")
             public static void AktieMarknadenMainMenu() throws InterruptedException{
                 System.out.println("1. Sätt in pengar");
                 System.out.println("2. Ta ut pengar");
@@ -369,7 +367,7 @@ public class Meny {
        
       
        }
-            public static void removeStock(){
+            public static void removeStock() throws InterruptedException{
                 Aktiemarknad.removeStock();
             }
             
