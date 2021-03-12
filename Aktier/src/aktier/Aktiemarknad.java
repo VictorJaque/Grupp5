@@ -26,11 +26,8 @@ public class Aktiemarknad extends Money implements MoneyMethods{
 
     @Override
     public void insertMoney() throws InterruptedException {
-        
-    
         System.out.println("Du har nu " + Meny.userBalance +Meny.userInputCurrency;
-       
-       Meny.AktieMarknadenMainMenu();
+        Meny.AktieMarknadenMainMenu();
                                              
         
        
@@ -96,7 +93,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
      
          
      }
-     public static void removeStock(){
+     public static void removeStock() throws InterruptedException{
          int numreraAktierna= 0;
          
          for (Aktie antalAktier: listOfStocks){
@@ -112,7 +109,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
          Meny.AktieMarknadenMainMenu();
          
      }
-     public static void listAllStocks(){
+     public static void listAllStocks() throws InterruptedException{
      int numreraAktierna= 0;
          
          for (Aktie antalAktier: listOfStocks){
@@ -127,7 +124,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
       }
        
              
-             
+}
       
 
 
