@@ -114,6 +114,59 @@ public class Meny {
         }
             
     }
+    
+     public static void SkatteMainMenu() throws InterruptedException{
+                System.out.println("1. Sätt in pengar");
+                System.out.println("2. Ta ut pengar");
+                System.out.println("3. Kolla saldo");
+                System.out.println("4. Betala Skatt");
+
+ 
+
+                System.out.println("-----------------");
+                System.out.println("0. Gå tillbaka");
+        
+                  String choiceSkatteMenu = scan.next();
+                  
+                  
+                  switch(choiceSkatteMenu){
+                      case "0":
+                          MenuAfterLogin();
+                            break;
+                      case "1":
+                            System.out.println("Hur mycket vill du sätta in?");
+        
+                            float userValueInput = scan.nextFloat();
+                            
+        
+                            userBalance = userBalance + userValueInput ;
+                        
+                        
+                            userMoneyAndCurrencyStaten.insertMoney();
+                        
+                            break;
+                      case "2":
+                          System.out.println("Hur mycket vill du ta ut?");
+                        
+                            float userWithdrawalAmount = scan.nextFloat();
+                            
+                            userBalance = userBalance - userWithdrawalAmount;
+                            
+                            userMoneyAndCurrencyStaten.withdrawMoney();
+                            break;
+                            
+                      case "3":
+                          userMoneyAndCurrencyStaten.checkBalance();
+                          break;
+                      case "4":
+                          userMoneyAndCurrencyStaten.BetalaSkatt();
+                            break;
+                       default:
+                            System.out.println("Du skrev inte in något av alternativen"); 
+                            SkatteMainMenu();
+                  }
+    }
+    
     public static void DeclareCurrency() throws InterruptedException{
         System.out.println("1. SEK");
         System.out.println("2. EUR");
