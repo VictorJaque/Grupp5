@@ -5,6 +5,8 @@
  */
 package aktier;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Victor Jaque <victor.jaque.mte21lin@tucsweden.se>
@@ -90,3 +92,4 @@ public class Staten extends Money implements MoneyMethods{
     private Scanner getScan() {
         return scan;
     }
+}
