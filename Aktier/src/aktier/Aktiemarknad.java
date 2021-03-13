@@ -36,7 +36,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
     @Override
     //Anropas i Meny klassen när användaren väljer att göra ettuttag
     public void withdrawMoney(){ 
-        System.out.println("Du har " + Meny.userBalance +  " "  Meny.userInputCurrency);
+        System.out.println("Du har " + Meny.userBalance +  " "  +Meny.userInputCurrency);
 
 
     }
