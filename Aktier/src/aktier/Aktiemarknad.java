@@ -26,7 +26,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
 
     @Override
     public void insertMoney() throws InterruptedException {
-        System.out.println("Du har nu " + Meny.userBalance +Meny.userInputCurrency;
+        System.out.println("Du har nu " + Meny.userBalance +Meny.userInputCurrency);
         Meny.AktieMarknadenMainMenu();
                                              
         
@@ -36,7 +36,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
     @Override
     //Anropas i Meny klassen när användaren väljer att göra ettuttag
     public void withdrawMoney(){ 
-        System.out.println("Du har " + Meny.userBalance +  " "  Meny.userInputCurrency;
+        System.out.println("Du har " + Meny.userBalance +  " "  Meny.userInputCurrency);
 
 
     }
@@ -44,7 +44,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
     @Override
     //Anropas i Meny klassen när användaren väljer att kolla sitt saldo
     public void checkBalance() {
-        System.out.println("Du har nu " + Meny.userBalance + " " +Meny.userInputCurrency;
+        System.out.println("Du har nu " + Meny.userBalance + " " +Meny.userInputCurrency);
     }
     
     
@@ -104,7 +104,7 @@ public class Aktiemarknad extends Money implements MoneyMethods{
      }
          System.out.println("Skriv in ID numret på den aktie du vill ta bort");
          Scanner scan = new Scanner(System.in);
-         int removeInput = scan.nextInt()
+         int removeInput = scan.nextInt();
          listOfStocks.remove(removeInput);
          Meny.AktieMarknadenMainMenu();
          
