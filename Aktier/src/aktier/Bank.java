@@ -15,14 +15,15 @@ import java.util.concurrent.TimeUnit;
 public class Bank extends Money implements MoneyMethods {  //
     //Attribut för bank
     private Scanner scan;
-    static float debt = 0;
-    static float totalLoan = 0;
-    float interest = (float)3.4; //sätter ränta för lån
+    private static float debt = 0;
+    private static float totalLoan = 0;
+    private float interest; 
 
     
     //Konstruktor
     public Bank (float value, String currency) {
         super(value, currency);
+        this.interest = (float)3.4;
     }
     
     //Metoder
@@ -34,22 +35,16 @@ public class Bank extends Money implements MoneyMethods {  //
     @Override
     public void insertMoney(float userBalance)throws InterruptedException  {
         //Metod för att sätta in pengar.
-        //Boolean till while loop  som inte stänger ner funktionen ifall användaren
-        //matar in mer pengar än den har
         float amount;
         System.out.println("Sätt in pengar");
         System.out.println("Hur mycket pengar vill du sätta in?");
         this.setScan(new Scanner(System.in));
         amount = getScan().nextFloat();
-        if (amount < GetValue()) { 
-            Meny.userBalance += amount;
-            SetValue(GetValue() - amount);
-            checkBalance(Meny.userBalance);
-            System.out.println("Du har nu satt in " + amount + " " + GetCurrency() + " till ditt konto!");
-            TimeUnit.SECONDS.sleep(1); //Stannar upp konsolen så användaren hinner se vad som hänt
-            checkBalance(Meny.userBalance);
-            Meny.BankMainMenu();
-            }
+        Meny.userBalance += amount;
+        System.out.println("Du har nu satt in " + amount + " " + GetCurrency() + " till ditt konto!");
+        TimeUnit.SECONDS.sleep(1); //Stannar upp konsolen så användaren hinner se vad som hänt
+        checkBalance(Meny.userBalance);
+        Meny.BankMainMenu();
         }
     
 
@@ -74,7 +69,7 @@ public class Bank extends Money implements MoneyMethods {  //
         } else {
             Meny.userBalance -= amount;
             SetValue(GetValue() + amount);
-            System.out.println("Du har nu tagit ut " + amount + " " + GetCurrency() + " från ditt konto!");
+            System.out.println("Du har nu tagit ut " + amount + " " + Meny.userInputCurrency + " från ditt konto!");
             TimeUnit.SECONDS.sleep(1); //stannar konsolen i en sekund så användaren hinner se vad som händer
             checkBalance(Meny.userBalance);
             Meny.BankMainMenu();
@@ -86,9 +81,10 @@ public class Bank extends Money implements MoneyMethods {  //
     public void checkBalance(float userBalance) throws InterruptedException {
         System.out.println("Du har " + Meny.userBalance + " " + GetCurrency() + " på ditt konto" );
         System.out.println("---------------------------------------------------------------");
-        System.out.println("Du har lånat totalt: " + this.totalLoan + " med en ränta på " + this.getInterest());
-        System.out.println("Total skuld: " + this.debt);
+        System.out.println("Du har lånat totalt: " + this.getTotalLoan() + " med en ränta på " + this.getInterest());
+        System.out.println("Total skuld: " + this.getDebt());
         System.out.println(" ");
+        TimeUnit.SECONDS.sleep(1);
         System.out.println(" ");
         Meny.BankMainMenu();
         
@@ -100,7 +96,6 @@ public class Bank extends Money implements MoneyMethods {  //
         System.out.println("Hur mycket vill du låna?");
         float amount;
         amount = getScan().nextFloat();
-        float interest = (float)3.4;  
                 
         //Kollar hur användaren skriver ränta. Ifall man skriver den i heltal så ska den dela med 100
         if (interest < 1.0 && interest > 0.0) {
@@ -143,6 +138,20 @@ public class Bank extends Money implements MoneyMethods {  //
      */
     public void setInterest(float interest) {
         this.interest = interest;
+    }
+
+    /**
+     * @return the debt
+     */
+    public static float getDebt() {
+        return debt;
+    }
+
+    /**
+     * @return the totalLoan
+     */
+    public static float getTotalLoan() {
+        return totalLoan;
     }
 
     

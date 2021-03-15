@@ -37,7 +37,7 @@ public class Meny {
         //Flera olika logic måste anropas
         UserInterface ui = new InterfaceImpl();
         Scanner sc = new Scanner(System.in);
-        userMoneyAndCurrency = new Aktiemarknad(100000, userInputCurrency); //Ger användaren 100 000kr att starta med
+        userMoneyAndCurrency = new Aktiemarknad(userBalance, userInputCurrency); //Ger användaren 100 000kr att starta med
             
         //input data
         System.out.println("Vänligen gör ett val");
