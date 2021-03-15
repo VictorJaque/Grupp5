@@ -11,7 +11,7 @@ package aktier;
  */
 abstract class Money extends User {  //extend user?
     //Attribut
-    private float value;
+    float value;
     private String currency;
     
     

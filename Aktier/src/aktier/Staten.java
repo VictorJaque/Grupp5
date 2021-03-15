@@ -15,18 +15,19 @@ public class Staten extends Money implements MoneyMethods{
 
  
 
-    public Scanner scan;
+    private Scanner scan;
     
     
     public Staten(float value, String currency) {
         super(value, currency);
+        scan = new Scanner(System.in);
     }
 
  
 
     @Override
-    public void insertMoney() throws InterruptedException {
-        System.out.println("Du har nu " + Meny.userBalance +Meny.userInputCurrency);
+    public void insertMoney(float userBalance) throws InterruptedException {
+        System.out.println("Du har nu " + userBalance +Meny.userInputCurrency);
        
        Meny.SkatteMainMenu();
 
@@ -37,9 +38,9 @@ public class Staten extends Money implements MoneyMethods{
  
 
     @Override
-    public void withdrawMoney() throws InterruptedException {
+    public void withdrawMoney(float userBalance) throws InterruptedException {
         
-        System.out.println("Du har " + Meny.userBalance +  " " + Meny.userInputCurrency);
+        System.out.println("Du har " + userBalance +  " " + Meny.userInputCurrency);
         
         Meny.SkatteMainMenu();
 
@@ -50,22 +51,22 @@ public class Staten extends Money implements MoneyMethods{
  
 
     @Override
-    public void checkBalance() throws InterruptedException {
+    public void checkBalance(float userBalance) throws InterruptedException {
         
-        System.out.println("Du har nu " + Meny.userBalance + " " +Meny.userInputCurrency);
+        System.out.println("Du har nu " + userBalance + " " +Meny.userInputCurrency);
         
         Meny.SkatteMainMenu();
         
         
     }
     
-    public void BetalaSkatt() throws InterruptedException{
-       this.setScan(new Scanner(System.in));
-       float komunalskatt = (float) 33.4;
-       float userSkatt = 0;
+    public static void BetalaSkatt() throws InterruptedException {
+        float komunalskatt = (float) 33.4;
+        float userSkatt = 0;
         System.out.print("Hur mycket tjänar du varje månad? ");
+        Scanner newScan = new Scanner(System.in);
         float amount;
-        amount = getScan().nextFloat();
+        amount = newScan.nextFloat();
         
         userSkatt = amount * (komunalskatt/100);
         if (Meny.userBalance < userSkatt){
@@ -73,11 +74,8 @@ public class Staten extends Money implements MoneyMethods{
             Meny.SkatteMainMenu();
         } else{
             Meny.userBalance -= userSkatt;
-             System.out.println("Skatten "+userSkatt+" har betalt nu och du har nu "+Meny.userBalance+ " "+ Meny.userInputCurrency);
+            System.out.println("Skatten "+ userSkatt + " är betald nu och du har " + Meny.userBalance + " " + Meny.userInputCurrency);
         }
-
- 
-
     }
 
  
@@ -90,6 +88,8 @@ public class Staten extends Money implements MoneyMethods{
     }
         
     private Scanner getScan() {
+        scan = new Scanner(System.in);
         return scan;
     }
 }
+
