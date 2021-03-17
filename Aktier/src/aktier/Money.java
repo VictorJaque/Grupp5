@@ -17,7 +17,7 @@ abstract class Money extends User {  //extend user?
     
     //Konstruktor
     public Money(float value, String currency) {
-        super();// fixa när user är klar
+        super();
         this.value = value;
         this.currency = currency;
     }

@@ -73,8 +73,38 @@ public class Meny {
                 //Registrera
                 System.out.println("Skriv in ditt namn:");
                 String newUserName = sc.nextLine();
+                boolean falseOrTrue = true;
+                while(falseOrTrue){
+                if (newUserName.isEmpty()){
+                    System.out.println("Du måste skriva in någon bokstav eller siffra");
+                    System.out.println("Skriv in ditt namn:");
+                   newUserName = sc.nextLine();
+                } else { 
+                    falseOrTrue = false;
+                    
+                    
+                    
+                }
+                }
+                
                 System.out.println("Skriv in ditt lösenord");
                 String newPassword = sc.nextLine();
+                
+                boolean falseOrTruePsw = true;
+                while(falseOrTruePsw){
+                if (newPassword.isEmpty()){
+                    System.out.println("Du måste skriva in någon bokstav eller siffra");
+                    System.out.println("Skriv in ditt namn:");
+                   newPassword = sc.nextLine();
+                } else { 
+                    falseOrTruePsw = false;
+                    
+                    
+                    
+                }
+                }
+                
+                
 
                 //kapsla in namnet och lösenordet till användare object
                 User user = new User();
