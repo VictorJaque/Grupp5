@@ -289,19 +289,12 @@ public class Meny {
                 
         switch (choiceMainMenu){
             case "1":
-                System.out.println("Hur mycket vill du sätta in?");
-                float userValueInput = scan.nextFloat();
-                //userBalance är till för att addera det nuvarande värdet med det nya initierade värdet
-                userBalance = userBalance + userValueInput ;
-                //skapar en instans av klassen 
-                //Lägger till de nya insatta värdet på det redan befintliga
+                
                 //genom Klassen aktiemarknad kan vi nå value och currency samt get och set för att sätta och få fram värdet på currency
                 userMoneyAndCurrency.insertMoney(userBalance);
                 break;
             case "2":
-                System.out.println("Hur mycket vill du ta ut?");
-                float userWithdrawalAmount = scan.nextFloat();
-                userBalance = userBalance - userWithdrawalAmount;
+              //anropar withdrawMoney metoden ifrån Aktiermarknadsklassen
                 userMoneyAndCurrency.withdrawMoney(userBalance);
                 break;
             case "3":
