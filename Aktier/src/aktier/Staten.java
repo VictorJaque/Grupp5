@@ -5,7 +5,9 @@
  */
 package aktier;
 
+import static aktier.Meny.scan;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  *
@@ -27,34 +29,40 @@ public class Staten extends Money implements MoneyMethods{
 
     @Override
     public void insertMoney(float userBalance) throws InterruptedException {
-        System.out.println("Du har nu " + userBalance +Meny.userInputCurrency);
-       
-       Meny.SkatteMainMenu();
-
- 
+        float amount;
+        System.out.println("Sätt in pengar");
+        System.out.println("Hur mycket pengar vill du sätta in?");
+        amount = scan.nextFloat();
+        Meny.userBalance += amount;
+        System.out.println("Du har nu satt in " + Meny.userBalance + " " + Meny.userInputCurrency + " till ditt konto!");
+        Meny.SkatteMainMenu();
 
     }
-
- 
 
     @Override
     public void withdrawMoney(float userBalance) throws InterruptedException {
-        
-        System.out.println("Du har " + userBalance +  " " + Meny.userInputCurrency);
-        
-        Meny.SkatteMainMenu();
-
- 
-
+                float amount;
+        System.out.println("Hur mycket pengar vill du ta ut?");
+        this.setScan(new Scanner(System.in));
+        amount = getScan().nextFloat();
+        if (amount > Meny.userBalance) {
+            System.out.println("Du har för lite pengar på ditt konto.");
+            
+            Meny.BankMainMenu();
+        } else {
+            Meny.userBalance -= amount;
+            checkBalance(Meny.userBalance);
+            Meny.SkatteMainMenu();
+        }
     }
-
- 
-
+    
     @Override
     public void checkBalance(float userBalance) throws InterruptedException {
         
-        System.out.println("Du har nu " + userBalance + " " +Meny.userInputCurrency);
-        
+        System.out.println("Du har " + Meny.userBalance + " " + Meny.userInputCurrency + " på ditt konto" );
+        System.out.println("---------------------------------------------------------------");
+        TimeUnit.SECONDS.sleep(1);
+        System.out.println(" ");
         Meny.SkatteMainMenu();
         
         
@@ -78,17 +86,11 @@ public class Staten extends Money implements MoneyMethods{
         }
     }
 
- 
-
-    private void setScan(Scanner scan) {
+    public void setScan(Scanner scan) {
         this.scan = scan;
-
- 
-
     }
-        
-    private Scanner getScan() {
-        scan = new Scanner(System.in);
+
+    public Scanner getScan() {
         return scan;
     }
 }

@@ -16,6 +16,7 @@ public class Meny {
     public static String userInputCurrency;
     public static float userValueInput;
     public static  String choiceMainMenu;
+    public static Staten userMoneyAndCurrencyStaten;
     public static Aktiemarknad userMoneyAndCurrency;// = new Aktiemarknad(userValueInput, choiceMainMenu);
     //userBalance används för att lagra det befintliga värdet av value för att sedan kunna öka eller minska den beroende på insättning/uttag
     public static float userBalance = 0;
@@ -153,7 +154,7 @@ public class Meny {
     public static void MenuAfterLogin() throws InterruptedException {
         System.out.println("1. Bank");
         System.out.println("2. Aktiemarknaden");
-        
+        System.out.println("3. Skatt");
         System.out.println("-----------------");
         System.out.println("0. Logga ut");
         
@@ -177,8 +178,9 @@ public class Meny {
                 break;
                 default: 
                 System.out.println("Du skrev inte in något av alternativen");
-        
-                
+                case "3":
+                SkatteMainMenu();
+                break;
         
         }
         
@@ -207,7 +209,7 @@ public class Meny {
                 MenuAfterLogin();
                 break;
             case "1": 
-                     
+
                 userMoneyAndCurrency.insertMoney(userBalance);
                 break;
             case "2":
@@ -288,8 +290,38 @@ public class Meny {
                 Aktiemarknad.removeStock();
             }
             
-        
-    
+     @SuppressWarnings("fallthrough")
+    public static void SkatteMainMenu() throws InterruptedException{
+        System.out.println("1. Sätt in pengar");
+        System.out.println("2. Ta ut pengar");
+        System.out.println("3. Kolla saldo");
+        System.out.println("4. Betala Skatt");
+        System.out.println("-----------------");
+        System.out.println("0. Gå tillbaka");
+        String choiceSkatteMenu = scan.next();
+
+        switch(choiceSkatteMenu){
+            case "0":
+                MenuAfterLogin();
+                break;
+            case "1":
+                
+                userMoneyAndCurrency.insertMoney(userBalance);
+                break;
+            case "2":
+                userMoneyAndCurrency.withdrawMoney(userBalance);
+                break;
+            case "3":
+                userMoneyAndCurrency.checkBalance(userBalance);
+                break;
+            case "4":
+                userMoneyAndCurrencyStaten.BetalaSkatt();
+            break;
+                default:
+            System.out.println("Du skrev inte in något av alternativen");
+            SkatteMainMenu();
+            }
+        }
     
     
 }
