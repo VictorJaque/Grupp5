@@ -58,14 +58,13 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
         //Metod för att ta ut pengar
         //Samma logik som ovan fast att den tar ut istället för att sätta in
         float amount;
-        System.out.println("Ta ut pengar");
         System.out.println("Hur mycket pengar vill du ta ut?");
         this.setScan(new Scanner(System.in));
         amount = getScan().nextFloat();
         if (amount > Meny.userBalance) {
             System.out.println("Du har för lite pengar på ditt konto.");
-            System.out.println("Försök igen!");
-            withdrawMoney(Meny.userBalance);
+            
+            Meny.BankMainMenu();
         } else {
             Meny.userBalance -= amount;
             TimeUnit.SECONDS.sleep(1); //stannar konsolen i en sekund så användaren hinner se vad som händer
@@ -111,7 +110,7 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
         
         //For each loop för att automatiskt ge id
         int count;
-        count = 1;
+        count = 0;
         for (Aktie i: listOfStocks) {
             count++;
         }
