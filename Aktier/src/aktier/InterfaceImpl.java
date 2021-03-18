@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class InterfaceImpl implements UserInterface {
     
-    
+    //Spara användare data
     private static ArrayList<User> list = new ArrayList<User>();
 
     @Override
