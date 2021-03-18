@@ -18,7 +18,7 @@ public class User {
     
     
     public User() {
-        super();
+        super(); //Anropa superklass metod för tillgång till superklass konstruktor
     }
 
     public User(String name, String password) {
