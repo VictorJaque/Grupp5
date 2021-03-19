@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author preec
+ * @author Preecha
  */
 public class InterfaceImpl implements UserInterface {
     

@@ -7,7 +7,7 @@ package aktier;
 
 /**
  *
- * @author preec 
+ * @author Preecha
  */
 public interface UserInterface {
     

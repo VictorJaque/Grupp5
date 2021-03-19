@@ -5,13 +5,12 @@
  */
 package aktier;
 
-import static aktier.Meny.scan;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 /**
  *
- * @author Victor Jaque <victor.jaque.mte21lin@tucsweden.se>
+ * @author Nureddin Elmas
  */
 public class Staten extends Money implements MoneyMethods{
 

@@ -8,7 +8,7 @@ package aktier;
 
 /**
  *
- * @author preec
+ * @author Preecha
  */
 public class User {
     //användare variabel
