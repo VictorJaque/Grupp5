@@ -116,11 +116,8 @@ public class Meny {
                    newPassword = sc.nextLine();
                 } else { 
                     falseOrTruePsw = false;
-                    
-                    
-                    
                 }
-                }
+            }
                 
                 
 
