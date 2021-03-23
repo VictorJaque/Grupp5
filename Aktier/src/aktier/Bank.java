@@ -22,7 +22,9 @@ public class Bank extends Money implements MoneyMethods {  //
     
     //Konstruktor
     public Bank (float value, String currency) {
-        super(value, currency);
+        super();
+        this.value = value;
+        this.currency = currency;
         this.interest = (float)3.4;
     }
     
@@ -30,6 +32,7 @@ public class Bank extends Money implements MoneyMethods {  //
 
     /**
      * 
+     * @param userBalance
      * @throws InterruptedException
      */
     @Override
@@ -44,13 +47,13 @@ public class Bank extends Money implements MoneyMethods {  //
         System.out.println("Du har nu satt in " + amount + " " + GetCurrency() + " till ditt konto!");
         TimeUnit.SECONDS.sleep(1); //Stannar upp konsolen så användaren hinner se vad som hänt
         checkBalance(Meny.userBalance);
-        Meny.BankMainMenu();
         }
     
 
 
     /**
      * 
+     * @param userBalance
      * @throws InterruptedException
      */
     @Override
@@ -68,11 +71,10 @@ public class Bank extends Money implements MoneyMethods {  //
             withdrawMoney(Meny.userBalance);
         } else {
             Meny.userBalance -= amount;
-            SetValue(GetValue() + amount);
+            setValue(getValue() + amount);
             System.out.println("Du har nu tagit ut " + amount + " " + Meny.userInputCurrency + " från ditt konto!");
             TimeUnit.SECONDS.sleep(1); //stannar konsolen i en sekund så användaren hinner se vad som händer
             checkBalance(Meny.userBalance);
-            Meny.BankMainMenu();
         }
     }
     
@@ -86,7 +88,6 @@ public class Bank extends Money implements MoneyMethods {  //
         System.out.println(" ");
         TimeUnit.SECONDS.sleep(1);
         System.out.println(" ");
-        Meny.BankMainMenu();
         
     }
     //Ta ett lån. Tar in hur mycket, ränta och vem som tar lån
@@ -109,7 +110,6 @@ public class Bank extends Money implements MoneyMethods {  //
         this.debt += userDebt;
         this.totalLoan += amount;
         checkBalance(Meny.userBalance);
-        Meny.BankMainMenu();
     }
 
     /**
@@ -153,6 +153,8 @@ public class Bank extends Money implements MoneyMethods {  //
     public static float getTotalLoan() {
         return totalLoan;
     }
+
+
 
     
 }

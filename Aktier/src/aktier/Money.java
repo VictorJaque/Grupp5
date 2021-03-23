@@ -9,18 +9,11 @@ package aktier;
  *
  * @author Victor Jaque <victor.jaque.mte21lin@tucsweden.se>
  */
-abstract class Money extends User {  //extend user?
+abstract class Money {  
     //Attribut
     float value;
-    private String currency;
-    
-    
-    //Konstruktor
-    public Money(float value, String currency) {
-        super();
-        this.value = value;
-        this.currency = currency;
-    }
+    String currency;
+   
     
     //Get metod för att nå currency 
     public String GetCurrency(){
@@ -29,13 +22,20 @@ abstract class Money extends User {  //extend user?
     //Set metod för att sätta currency värdet på en ny variabel
     public String SetCurrency(String valuta){
         return this.currency = valuta;
-   
-     //Istället för att använda get och set för att skydda data används här get och set för att nå attributen i Meny klassen 
-    }      
-    public float GetValue(){
+    }
+
+    /**
+     * @return the value
+     */
+    public float getValue() {
         return value;
     }
-    public float SetValue(float userInputValue){
-            return this.value = userInputValue;
+
+    /**
+     * @param value the value to set
+     */
+    public void setValue(float value) {
+        this.value = value;
     }
+
 }

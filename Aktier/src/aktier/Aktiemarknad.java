@@ -43,7 +43,6 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
         System.out.println("Du har nu satt in " + amount + " " + Meny.userInputCurrency + " till ditt konto!");
         TimeUnit.SECONDS.sleep(1); //Stannar upp konsolen så användaren hinner se vad som hänt
         checkBalance(Meny.userBalance);
-        Meny.BankMainMenu();
         }
     
 
@@ -69,7 +68,6 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
             Meny.userBalance -= amount;
             TimeUnit.SECONDS.sleep(1); //stannar konsolen i en sekund så användaren hinner se vad som händer
             checkBalance(Meny.userBalance);
-            Meny.AktieMarknadenMainMenu();
         }
     }
     
@@ -83,7 +81,6 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
         System.out.println(" ");
         TimeUnit.SECONDS.sleep(1);
         System.out.println(" ");
-        Meny.AktieMarknadenMainMenu();
         
     }
     
@@ -137,7 +134,6 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
             System.out.println("Aktie ID: " + antalAktier.getAktieID() +  " Aktie: " + antalAktier.getAktieNamn() + " Pris: " + antalAktier.getKostnad());
             
         }
-        Meny.AktieMarknadenMainMenu();
          
          
         
@@ -155,7 +151,6 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
         Scanner scan = new Scanner(System.in);
         int removeInput = scan.nextInt();
         listOfStocks.remove(removeInput);
-        Meny.AktieMarknadenMainMenu();
         
     }
     public static void listAllStocks() throws InterruptedException{
@@ -167,7 +162,6 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
             System.out.println(numreraAktierna + ". Aktie: " + antalAktier.getAktieNamn() + " ID: " + antalAktier.getAktieID() + " Pris: " + antalAktier.getKostnad());
             numreraAktierna++;
         }
-        Meny.AktieMarknadenMainMenu();
 
    
     }

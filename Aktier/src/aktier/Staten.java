@@ -20,7 +20,9 @@ public class Staten extends Money implements MoneyMethods{
     
     
     public Staten(float value, String currency) {
-        super(value, currency);
+        super();
+        this.value = value;
+        this.currency = currency;
         scan = new Scanner(System.in);
     }
 
@@ -34,8 +36,6 @@ public class Staten extends Money implements MoneyMethods{
         amount = scan.nextFloat();
         Meny.userBalance += amount;
         System.out.println("Du har nu satt in " + Meny.userBalance + " " + Meny.userInputCurrency + " till ditt konto!");
-        Meny.SkatteMainMenu();
-
     }
 
     @Override
@@ -46,12 +46,9 @@ public class Staten extends Money implements MoneyMethods{
         amount = getScan().nextFloat();
         if (amount > Meny.userBalance) {
             System.out.println("Du har för lite pengar på ditt konto.");
-            
-            Meny.BankMainMenu();
         } else {
             Meny.userBalance -= amount;
             checkBalance(Meny.userBalance);
-            Meny.SkatteMainMenu();
         }
     }
     
@@ -62,7 +59,6 @@ public class Staten extends Money implements MoneyMethods{
         System.out.println("---------------------------------------------------------------");
         TimeUnit.SECONDS.sleep(1);
         System.out.println(" ");
-        Meny.SkatteMainMenu();
         
         
     }
