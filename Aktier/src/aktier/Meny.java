@@ -143,6 +143,7 @@ public class Meny {
         }
             
     }public static void DeclareCurrency() throws InterruptedException{
+        System.out.println("Välj den valuta du vill ha");
         System.out.println("1. SEK");
         System.out.println("2. EUR");
         
