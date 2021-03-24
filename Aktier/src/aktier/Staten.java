@@ -20,7 +20,6 @@ public class Staten extends Money implements MoneyMethods{
     
     
     public Staten(float value, String currency) {
-        super();
         this.value = value;
         this.currency = currency;
         scan = new Scanner(System.in);

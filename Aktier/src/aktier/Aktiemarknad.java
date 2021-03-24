@@ -118,8 +118,10 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
             count++;
         }
         
+
         //Skriver ut  meddelande till användaren att köpet gått igenom
   
+
         System.out.println("Gratulerar");
         System.out.println("Du har nu köpt " + aktieNamn + " för " + kostnad + " " + Meny.userInputCurrency);
         System.out.println("Aktien har tilldelats ID " + count);
