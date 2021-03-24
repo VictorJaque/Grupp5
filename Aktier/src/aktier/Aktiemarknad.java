@@ -169,6 +169,7 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
     /**
      * @return the scan
      */
+    @Override
     public Scanner getScan() {
         return scan;
     }
@@ -176,6 +177,7 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
     /**
      * @param scan the scan to set
      */
+    @Override
     public void setScan(Scanner scan) {
         this.scan = scan;
     }
