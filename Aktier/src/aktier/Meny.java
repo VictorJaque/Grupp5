@@ -296,7 +296,7 @@ public class Meny {
             }
         }
     }
-    //Lägger till
+    //Lägger till aktier i listan (Anropar en metod i Aktiemarknad.java)
     public static void newStock() throws InterruptedException{
         System.out.println("Aktier");
         userMoneyAndCurrency.addStocks(Aktiemarknad.getListOfStocks());
