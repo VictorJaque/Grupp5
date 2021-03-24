@@ -111,7 +111,7 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
         for (Aktie i: listOfStocks) {
             count++;
         }
-  
+        
         System.out.println("Gratulerar");
         System.out.println("Du har nu köpt " + aktieNamn + " för " + kostnad + " " + Meny.userInputCurrency);
         System.out.println("Aktien har tilldelats ID " + count);
