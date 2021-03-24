@@ -52,12 +52,15 @@ public class Meny {
         
         
         //Flera olika logic måste anropas
+        //Loggnings funktion
+        //Anvåndarens saldo och valuta
         UserInterface ui = new InterfaceImpl();
         Scanner sc = new Scanner(System.in);
-        userMoneyAndCurrency = new Aktiemarknad(userBalance, userInputCurrency); //Ger användaren 100 000kr att starta med
+        userMoneyAndCurrency = new Aktiemarknad(userBalance, userInputCurrency); 
             
-        //input data
-        System.out.println("Vänligen gör ett val");
+        //Input data
+        //Läser in användarens val
+        System.out.println("Vänligen gör ett val: ");
         String choice = sc.nextLine();
             
         //Använder switch statement
@@ -70,6 +73,8 @@ public class Meny {
                 String password = sc.nextLine();
                 
                 //Tillkalla loggnings funktion
+                //Fråga användare y/n fråga 
+                //För att gåvidare till DeclareCurrency
                 boolean flag = ui.isLogin(username, password);
                 if(flag) {
                     System.out.println("Inloggning lyckad");
@@ -93,7 +98,7 @@ public class Meny {
                 String newUserName = sc.nextLine();
                 boolean falseOrTrue = true;
                 while(falseOrTrue){
-                if (newUserName.isEmpty()){
+                if (newUserName.isEmpty()){ //Förhindra användare att logga in med tomma fält av namn
                     System.err.println("Du måste skriva in någon bokstav eller siffra");
                     System.out.println("Skriv in ditt namn:");
                     newUserName = sc.nextLine();
@@ -104,13 +109,13 @@ public class Meny {
                     
                 }
                 }
-                
+                //Läser in användarens lösenord och spara
                 System.out.println("Skriv in ditt lösenord");
                 String newPassword = sc.nextLine();
                 
                 boolean falseOrTruePsw = true;
                 while(falseOrTruePsw){
-                if (newPassword.isEmpty()){
+                if (newPassword.isEmpty()){ //Förhindra användare att logga in med tomma fält av lösenord
                     System.out.println("Du måste skriva in någon bokstav eller siffra");
                     System.out.println("Skriv in ditt namn:");
                    newPassword = sc.nextLine();
@@ -138,7 +143,7 @@ public class Meny {
             default:
                 System.out.println("Försök igen");
         }
-            
+      //Användaren väljer den valuta som passa       
     }public static void DeclareCurrency() throws InterruptedException{
         System.out.println("Välj den valuta du vill ha");
         System.out.println("1. SEK");
