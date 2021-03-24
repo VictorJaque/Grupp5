@@ -10,11 +10,12 @@ package aktier;
  * @author Kalle
  */
 public class Aktie {
+    //Attribut
     private int aktieID;
     private String aktieNamn;
     private float kostnad;
     
-
+    //Konstruktor
     public Aktie(int aktieID ,String aktieNamn, float kostnad) {
         this.aktieID = aktieID;
         this.aktieNamn = aktieNamn;
@@ -23,7 +24,7 @@ public class Aktie {
     }
     
     
-
+    //Metoder
     public String getAktieNamn() {
         return aktieNamn;
     }
