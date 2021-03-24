@@ -20,7 +20,7 @@ public class InterfaceImpl implements UserInterface {
     public boolean isLogin(String username, String password) {
         //antar att logningen fail
         boolean flag = false; 
-        
+        //Kolla igenom lista av användaren namn och lösenord
         for(User u: list){
             if(u.getName().equals(username) && u.getPassword().equals(password)) {
                 flag = true;
