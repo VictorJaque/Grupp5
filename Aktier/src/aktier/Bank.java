@@ -65,6 +65,7 @@ public class Bank extends Money implements MoneyMethods {  //
         System.out.println("Hur mycket pengar vill du ta ut?");
         this.setScan(new Scanner(System.in));
         amount = getScan().nextFloat();
+        //Kollar så användaren har tillräckligt med pengar
         if (amount > Meny.userBalance) {
             System.out.println("Du har för lite pengar på ditt konto.");
             System.out.println("Försök igen!");
