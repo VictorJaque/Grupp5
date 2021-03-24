@@ -71,30 +71,35 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
         }
     }
     
-    //Skriver ut saldo 
+    //Skriver ut saldot
+   
     @Override
     public void checkBalance(float userBalance) throws InterruptedException {
+        //Hämtar userBalance och userInputCurrency från Meny klassen som är användarens saldo och valuta
         System.out.println("Du har " + Meny.userBalance + " " + Meny.userInputCurrency + " på ditt konto" );
         System.out.println("---------------------------------------------------------------");
-        System.out.println("Du har lånat totalt: " + Meny.userMoneyAndCurrency.getTotalLoan() + " med en ränta på " + Meny.userMoneyAndCurrency.getInterest());
-        System.out.println("Total skuld: " + Meny.userMoneyAndCurrency.getDebt());
+        System.out.println("Du har lånat totalt: " + Aktiemarknad.getTotalLoan() + " med en ränta på " + Meny.userMoneyAndCurrency.getInterest());
+        System.out.println("Total skuld: " + Aktiemarknad.getDebt());
         System.out.println(" ");
         TimeUnit.SECONDS.sleep(1);
         System.out.println(" ");
         
     }
     
-    
+    //Låter användaren skapa en instans av en array list
     public static void addStocks(ArrayList<Aktie> listOfStocks) throws InterruptedException{
          
          
-         
+    //     
         Scanner scan = new Scanner(System.in);
         System.err.println("Följ instruktionerna för att lägga till en aktie i listan");
         System.out.println("Aktiens:");
         
+        //Användaren får mata in ett String värde som symboliserar namnet på en aktie som sedan används för att skapa instansen
         System.out.println("Namn");
         String aktieNamn = (scan.next());
+        
+        //Användaren får mata in en float som symboliserar priset på en aktie som sedan används för att skapa instansen
          
         System.out.println("Pris");
         float kostnad =scan.nextFloat();
@@ -106,17 +111,25 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
         }
         
         //For each loop för att automatiskt ge id
+        //Börjar på 0 och symboliserar index värdet
         int count;
         count = 0;
         for (Aktie i: listOfStocks) {
             count++;
         }
+        
+
+        //Skriver ut  meddelande till användaren att köpet gått igenom
   
+
         System.out.println("Gratulerar");
         System.out.println("Du har nu köpt " + aktieNamn + " för " + kostnad + " " + Meny.userInputCurrency);
         System.out.println("Aktien har tilldelats ID " + count);
         
+        //programmet väntar 1 sekund på en uppdatering
         TimeUnit.SECONDS.sleep(1);
+        
+        //Med hjälp av användarens tidigare inmatningar skapas nu en ny instans baserat på de inmatninarna
         Aktiemarknad.listOfStocks.add(new Aktie(count, aktieNamn, kostnad));
          
          
@@ -127,7 +140,8 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
          
         
              
- 
+         //skriver upp alla de aktier som användaren har i sin protfölj
+         
          
         for (Aktie antalAktier: listOfStocks){
              
@@ -141,18 +155,25 @@ public class Aktiemarknad extends Bank implements MoneyMethods{
      
          
     }
+    
+    //Låter användaren radera en instans av arraylisten
     public static void removeStock() throws InterruptedException{
+        
+        //Återigen listas alla befintliga idexes upp i arrayListen med hjälp av en for each loop
         for (Aktie antalAktier: listOfStocks){
              
             System.out.println("ID: " + antalAktier.getAktieID() +  ". Aktie: " + antalAktier.getAktieNamn() + " Pris: " + antalAktier.getKostnad());
             
         }
+        
         System.out.println("Skriv in ID numret på den aktie du vill ta bort");
         Scanner scan = new Scanner(System.in);
         int removeInput = scan.nextInt();
+        //När användaren skriver in index värdet raderas den instansen
         listOfStocks.remove(removeInput);
         
     }
+    //En lista av tillgängla aktier i arrayListen
     public static void listAllStocks() throws InterruptedException{
         int numreraAktierna= 0;
          
