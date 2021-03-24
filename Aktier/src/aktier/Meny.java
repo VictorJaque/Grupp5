@@ -17,7 +17,7 @@ public class Meny {
     public static float userValueInput;
     public static  String choiceMainMenu;
     public static Staten userMoneyAndCurrencyStaten;
-    public static Aktiemarknad userMoneyAndCurrency;// = new Aktiemarknad(userValueInput, choiceMainMenu);
+    public static Aktiemarknad userMoneyAndCurrency;
     //userBalance används för att lagra det befintliga värdet av value för att sedan kunna öka eller minska den beroende på insättning/uttag
     public static float userBalance = 0;
     //static scanner för att nå den i hela klassen
@@ -54,7 +54,7 @@ public class Meny {
         //Flera olika logic måste anropas
         UserInterface ui = new InterfaceImpl();
         Scanner sc = new Scanner(System.in);
-        userMoneyAndCurrency = new Aktiemarknad(userBalance, userInputCurrency); //Ger användaren 100 000kr att starta med
+        userMoneyAndCurrency = new Aktiemarknad(userBalance, userInputCurrency); 
             
         //input data
         System.out.println("Vänligen gör ett val");
@@ -123,8 +123,6 @@ public class Meny {
 
                 //kapsla in namnet och lösenordet till användare object
                 User user = new User(newUserName, newPassword);
-                //user.setName(newUserName);
-                //user.setPassword(newPassword);
                     
                 //Anropa registrations funktion
                 //Skapa interface object
@@ -133,7 +131,7 @@ public class Meny {
                 break;
             case "0":
                 System.out.println("Tack för att du handlar aktier hos oss");
-                Main.setFalseOrTrue = false;
+                setFalseOrTrue = false;
                 break;
             default:
                 System.out.println("Försök igen");
@@ -327,7 +325,6 @@ public class Meny {
                     isTrue = false;
                     break;
                 case "1":
-                    
                     userMoneyAndCurrency.insertMoney(userBalance);
                     break;
                 case "2":
