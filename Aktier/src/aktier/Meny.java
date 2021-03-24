@@ -296,13 +296,13 @@ public class Meny {
             }
         }
     }
-    
+    //Lägger till
     public static void newStock() throws InterruptedException{
         System.out.println("Aktier");
         userMoneyAndCurrency.addStocks(Aktiemarknad.getListOfStocks());
         AktieMarknadenMainMenu();
     }
-    
+    //anropar metoden för att ta bort aktier ut listorna
     public static void removeStock() throws InterruptedException{
         Aktiemarknad.removeStock();
     }
