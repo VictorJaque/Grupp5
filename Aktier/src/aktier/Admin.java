@@ -10,6 +10,7 @@ package aktier;
  * @author Victor Jaque <victor.jaque.mte21lin@tucsweden.se>
  */
 public class Admin extends User {
+    //attribut
     private final boolean isAdmin = true;
     
     public Admin(String password) {

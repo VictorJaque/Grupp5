@@ -12,7 +12,7 @@ package aktier;
  */
 public class User {
     //användare variabel
-    private String name;
+    String name;
     private String password;
 
    public User(String name, String password) {
@@ -35,5 +35,6 @@ public class User {
     public void setPassword(String password){
         this.password = password;
     }
+
 }
 
